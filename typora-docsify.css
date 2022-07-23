@@ -295,18 +295,29 @@ body,
   margin: 0 0.05rem;
   border-radius: 0.25em;
 }
-#write strong,
-.markdown-section strong,
-#write b,
-.markdown-section b,
-#write em,
-.markdown-section em,
+#write strong::before,
+.markdown-section strong::before,
+#write b::before,
+.markdown-section b::before,
+#write em::before,
+.markdown-section em::before,
+#write strong::after,
+.markdown-section strong::after,
+#write b::after,
+.markdown-section b::after,
+#write em::after,
+.markdown-section em::after {
+  content: ' ';
+  letter-spacing: -0.25ch;
+}
 #write u,
 .markdown-section u,
-#write mark,
-.markdown-section mark,
 #write del,
-.markdown-section del {
+.markdown-section del,
+#write q,
+.markdown-section q,
+#write mark,
+.markdown-section mark {
   margin: 0 0.05rem;
 }
 #write p a,
@@ -322,7 +333,7 @@ body,
   color: #F30;
   background: #FF4;
   text-decoration-color: red;
-  transition: 0s;
+  transition: 0.3s;
 }
 #write a.anchor,
 .markdown-section a.anchor {

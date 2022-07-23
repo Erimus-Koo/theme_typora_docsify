@@ -1,4 +1,4 @@
-# Playground
+# [Playground]()
 
 ⚠️ I use this file as a <u>**PLAYGROUND**</u>
 
@@ -14,7 +14,7 @@ In [publishing](https://www.wikiwand.com/en/Publishing) and [graphic design](
 
 [^1]:	「親民」是使民眾能日新月異，進步不已，革新民意。
 
-能夠**重点加粗 strong 重点加粗 strong 重点加粗 strong 重点加粗 strong 重点加粗 strong**，<u>下划线 underlinging 下划线 underlinging 下划线 underlinging</u>，然後<u>**加粗又下划**</u>意志纔<mark>高光 Mark 高光 Mark <u>高光 Mark</u> 高光 Mark 高光 Mark 高光 Mark 高光 Mark 高光 Mark 高光 Mark 高光 Mark</mark>；意志有了定力，然後~~删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del~~，不會<!--妄動-->；能做到*斜体 italic 斜体 italic 斜体 italic 斜体 italic 斜体 italic 斜体 italic 斜体 italic 斜体 italic 斜体 italic 斜体 italic*，然後纔能[超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link](http://g.cn)隨遇而安；能夠`代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code`，然後纔能處事精當思慮周詳；能夠思慮周詳，纔能得到至善的境界。
+能夠**重点加粗 strong 重点加粗 strong 重点加粗 strong 重点加粗 strong 重点加粗 strong**，<u>下划线 underlinging 下**划**线 underlinging 下划线 underlinging</u>，然後<u>**加粗又下划**</u>意志纔<mark>高光 Mark 高光 Mark <u>高光 Mark</u> 高光 Mark 高光 Mark 高光 Mark 高光 Mark 高光 Mark 高光 Mark 高光 Mark</mark>；意志有了定力，然後~~删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del~~，不會<!--妄動-->；能做到*斜体 italic 斜体 italic 斜体 italic 斜体 italic 斜体 italic 斜体 italic 斜体 italic 斜体 italic 斜体 italic 斜体 italic*，然後纔能[超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link](http://g.cn)隨遇而安；能夠`代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code`，然後纔能處事精當思慮周詳；能夠思慮周詳，纔能得到至善的境界。
 
 <q>q 行内引用 淡化 注释</q>
 

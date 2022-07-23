@@ -276,6 +276,7 @@ body,
         border-radius: @inline_border_radius;
     }
 
+    // without hedaer a
     p a,
     li a,
     del,
@@ -284,13 +285,24 @@ body,
         .inline-with-bg();
     }
 
-    // inline-block margin
+    // add space and avoid break underline
     strong,
     b,
     em,
+        {
+
+        &::before,
+        &::after {
+            content: ' ';
+            letter-spacing: -.25ch;
+        }
+    }
+
+    // inline-block margin
     u,
-    mark,
     del,
+    q,
+    mark,
         {
         margin: 0 @inline_block_margin;
     }
@@ -307,7 +319,7 @@ body,
         color: @c_important;
         background: @c_highlight;
         text-decoration-color: red; // specific for header
-        transition: 0s;
+        transition: .3s;
     }
 
     // 标题a
