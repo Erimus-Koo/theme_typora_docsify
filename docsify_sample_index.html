@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="content-language" content="zh-CN">
+    <!-- for web app -->
+    <meta name="apple-mobile-web-app-title" content="notebook" />
+    <link rel="apple-touch-icon" href="/notebook/note.png" />
+    <title>Erimus</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="description" content="Description" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+    <!-- Theme: Simple (latest v0.x.x) -->
+    <link rel="stylesheet" href="typora-docsify/theme-simple.css" />
+    <link rel="stylesheet" href="typora-docsify.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-okaidia.min.css">
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+    <!-- 关系图插件 -->
+    <script src="//unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>
+    // mermaid init
+    var num = 0;
+    mermaid.initialize({ startOnLoad: false, pie: { useMaxWidth: false } });
+
+    // 配置说明 https://docsify.js.org/#/zh-cn/configuration
+    window.$docsify = {
+        name: "Erimus",
+        repo: "",
+        maxLevel: 6, //文档中标题等级
+        auto2top: true, //切换页面后是否自动跳转到页面顶部
+        homepage: "readme.md", // 入口文件
+        // coverpage: true,  // 封面页
+        noEmoji: true,
+        topMargin: 100,
+
+        // ========== navbar
+        // loadNavbar: true,
+        // mergeNavbar: true,
+
+        // ========== sidebar
+        loadSidebar: 'docsify_sample_sidebar.md',
+        subMaxLevel: 3,
+        // logo: "icon.png",
+        autoHeader: true,
+
+        // ========== search
+        search: {
+            noData: {
+                "/": "No results!"
+            },
+            paths: "auto",
+            placeholder: {
+                "/": "Search"
+            }
+        },
+
+        formatUpdated: "{YYYY}-{MM}-{DD} {HH}:{mm}",
+
+        markdown: {
+            smartypants: true,
+            breaks: true, // 不用双空格直接换行
+            renderer: {
+                code: function(code, lang) {
+                    if (lang === "mermaid") {
+                        return (
+                            '<div class="mermaid">' + mermaid.render('mermaid-svg-' + num++, code) + "</div>"
+                        );
+                    }
+                    return this.origin.code.apply(this, arguments);
+                }
+            },
+        },
+
+        plugins: [
+            function(hook, vm) {
+                hook.beforeEach(function(html) {
+                    //适配Markdown的====高亮语法
+                    let res = html.match(/==(.+?)==/g);
+                    if (res) {
+                        for (var i = 0; i < res.length; i++) {
+                            html = html.replace(res[i], `<mark>` + res[i].replace(/==/g, "") + `</mark>`);
+                        }
+                    }
+                    //适配Markdown的^^上标语法
+                    // res = html.match(/\^(.+?)\^/g);
+                    // if (res) {
+                    //     for (var i = 0; i < res.length; i++) {
+                    //         html = html.replace(res[i], `<sup>` + res[i].replace(/\^/g, "") + `</sup>`);
+                    //     }
+                    // }
+                    //将更新时间加到文档的尾部
+                    return html + '\n<q>Last Modified: {docsify-updated}</q>';
+                })
+            }
+        ],
+
+        toc: {
+            tocMaxLevel: 5,
+            target: 'h2, h3, h4, h5, h6'
+        },
+    };
+    </script>
+    <!-- 搜索 -->
+    <script src="//unpkg.com/docsify/lib/plugins/search.min.js"></script>
+    <!-- 翻页插件 -->
+    <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
+    <!-- 增加引用框的类型 -->
+    <!-- https://github.com/fzankl/docsify-plugin-flexible-alerts -->
+    <!-- <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script> -->
+    <!-- 图片放大 -->
+    <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+    <!-- 复制代码 -->
+    <script src="https://unpkg.com/docsify-copy-code"></script>
+    <!-- 代码高亮 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <!-- wikilink -->
+    <script src="https://cdn.jsdelivr.net/npm/docsify-wikilink"></script>
+    <!-- TOC -->
+    <!-- <script src="//unpkg.com/docsify-plugin-toc"></script> -->
+</body>
+
+</html>
