@@ -1,0 +1,804 @@
+// write by sublimetext and linter plugin less2css
+
+// import google fonts
+@import (css) url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+// import code block css
+@import url('typora-docsify/codeblock.css');
+
+//for docsify
+@font_color: #222;
+@main_color: #24D;
+@c_link: #93F;
+@c_em: #F69;
+@c_dark: #333;
+@c_light: #EEE;
+@code_border: 0px solid transparent;
+@c_border: #CCC;
+@c_important: #F30;
+@c_highlight: #FF4;
+@inline_border_radius: .25em;
+@block_border_radius: .5em;
+@sans: 'Poppins', 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', sans-serif;
+@monospace: 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
+@inline_block_padding: .25rem;
+@inline_block_margin: .05rem;
+@code_block_padding_v: .75em;
+@code_block_padding_h: 1em;
+@line_height: 1.75;
+
+//for typora
+:root {
+    --bg-color: #FFF;
+    --text-color: @font_color;
+    // --md-char-color: #F69; //改变元字符的颜色，例如 markdown 中的“*”
+    --meta-content-color: #06B; //改变元内容的颜色，例如 markdown 中的图像文本和链接地址
+
+    --primary-color: @main_color; //主按钮的颜色
+    // --window-border: 1px solid red; //边栏等的边框 很少出现
+
+    // side bar menu
+    --active-file-bg-color: fadeout(@c_dark, 90%);
+    // --active-file-text-color: #FFF;
+    --active-file-border-color: @main_color;
+    --side-bar-bg-color: @c_light;
+    --item-hover-bg-color: rgba(127, 127, 127, 0.1);
+    //鼠标悬停时控件项的背景，如侧边栏中的菜单
+    --item-hover-text-color: inherit;
+    --monospace: @monospace;
+}
+
+html,
+body,
+#write {
+    background: #FFF;
+    font: 400 1rem/@line_height @sans;
+    color: @font_color;
+    min-height: 100vh;
+}
+
+// typora: #write, docsify: .markdown-section
+#write,
+.markdown-section {
+    max-width: 40em; // limit width by character number
+    padding-left: 2em;
+    padding-right: 2em;
+
+    *,
+    *::before,
+    *::after {
+        word-break: break-word;
+        box-sizing: border-box;
+        box-decoration-break: clone;
+        -webkit-box-decoration-break: clone;
+        -webkit-font-smoothing: antialiased;
+        -webkit-overflow-scrolling: touch; // iOS overflow滚动时保持橡皮筋效果
+        -webkit-text-size-adjust: none; // iOS 横屏字号变化关闭
+        -webkit-tap-highlight-color: transparent; // iOS 点击区域不出现灰色
+    }
+
+
+    // ==================== 标题
+    h1,
+    h1 *,
+    h2,
+    h2 *,
+    h3,
+    h3 *,
+    h4,
+    h4 *,
+    h5,
+    h5 *,
+    h6,
+    h6 * {
+        color: @main_color;
+        font-family: @sans;
+        font-weight: normal;
+        padding: 0 !important;
+        margin: 1em 0 0 !important;
+        line-height: 1.25 !important;
+
+        // header numbering
+        &::before {
+            color: inherit;
+            font-size: 0.8em;
+            font-weight: normal;
+            margin-right: .5rem;
+            border: none;
+            position: relative;
+            left: unset;
+            top: unset;
+            float: none;
+            padding: 0;
+            vertical-align: baseline;
+            opacity: 1 !important;
+        }
+
+        // show header level while focus
+        &.md-focus:after {
+            color: #BBB;
+            font-size: .8em;
+        }
+    }
+
+    // 移动端顶部留出距离
+    // padding 保证锚点跳转到该处 上方仍有空间
+    h1:first-child {
+        padding-top: 3em !important;
+    }
+
+    h1 * {
+        font: 2rem @sans;
+    }
+
+    h2 {
+        border: none;
+        border-top: 1px solid @main_color;
+        padding-top: 1em !important;
+        margin-top: 2em !important;
+        display: block;
+    }
+
+    h2,
+    h2 * {
+        font-size: 1.75rem;
+    }
+
+    h3,
+    h3 * {
+        font-size: 1.5rem;
+    }
+
+    h4,
+    h4 * {
+        font-size: 1.25rem;
+        font-weight: 500;
+    }
+
+    h5,
+    h5 * {
+        font-size: 1.125rem;
+        font-weight: 600;
+    }
+
+    h6,
+    h6 * {
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    // ==================== Auto Numbering for Headings
+    // https://support.typora.io/Auto-Numbering/
+    // initialize css counter
+    // #write {
+    //     counter-reset: h1
+    // }
+
+    h1 {
+        counter-reset: h2
+    }
+
+    h2 {
+        counter-reset: h3
+    }
+
+    h3 {
+        counter-reset: h4
+    }
+
+    h4 {
+        counter-reset: h5
+    }
+
+    h5 {
+        counter-reset: h6
+    }
+
+    // put counter result into headings
+    // skip h1, because I usually use H1 as main title
+    h2::before {
+        counter-increment: h2;
+        content: counter(h2) "."
+    }
+
+    h3::before,
+        {
+        counter-increment: h3;
+        content: counter(h2) "."counter(h3)
+    }
+
+    h4::before,
+        {
+        counter-increment: h4;
+        content: counter(h2) "."counter(h3) "."counter(h4)
+    }
+
+    h5::before,
+        {
+        counter-increment: h5;
+        // content: counter(h2) "."counter(h3) "."counter(h4) "."counter(h5)
+        content: none;
+    }
+
+    h6::before,
+        {
+        counter-increment: h6;
+        // content: counter(h2) "."counter(h3) "."counter(h4) "."counter(h5) "."counter(h6)
+        content: none;
+    }
+
+
+    // show header level while selected
+    h2.md-focus::after {
+        content: ' H2'
+    }
+
+    h3.md-focus::after {
+        content: ' H3'
+    }
+
+    h4.md-focus::after {
+        content: ' H4'
+    }
+
+    h5.md-focus::after {
+        content: ' H5'
+    }
+
+    h6.md-focus::after {
+        content: ' H6'
+    }
+
+    // ============================== 段落 & 块元素
+    p,
+    pre.md-fences,
+    //typora
+    pre[data-lang],
+    //docsify
+    blockquote,
+    table,
+    ul,
+    ol,
+    hr {
+        margin: 1rem 0;
+    }
+
+    hr {
+        height: 0;
+        border: none;
+        border-bottom: 1px dotted @main_color;
+    }
+
+    // ============================== 行内元素
+    // 行内有背景的小块元素
+    .inline-with-bg {
+        padding: 0 @inline_block_padding;
+        margin: 0 @inline_block_margin;
+        border-radius: @inline_border_radius;
+    }
+
+    p a,
+    li a,
+    del,
+    q,
+    mark {
+        .inline-with-bg();
+    }
+
+    // inline-block margin
+    strong,
+    b,
+    em,
+    u,
+    mark,
+    del,
+        {
+        margin: 0 @inline_block_margin;
+    }
+
+    p a,
+    li a {
+        color: @c_link;
+        padding: 0;
+        transition: 1s;
+        // text-decoration-color: transparent;
+    }
+
+    a:hover {
+        color: @c_important;
+        background: @c_highlight;
+        text-decoration-color: red; // specific for header
+        transition: 0s;
+    }
+
+    // 标题a
+    a.anchor {
+        text-decoration: underline;
+        text-decoration-color: transparent;
+
+        &:hover {
+            background: @c_highlight;
+        }
+    }
+
+    strong,
+    b {
+        // font-size: bolder;
+    }
+
+    p strong,
+    p b {
+        // color: @c_important;
+    }
+
+    del {
+        color: fadeout(@font_color, 50%);
+        background: @c_light;
+    }
+
+    u {
+        // text-decoration: none;
+        // border-bottom: 1px solid @c_important;
+        text-decoration-color: @c_important;
+    }
+
+    mark {
+        color: @c_important;
+        background: @c_highlight;
+        // font-weight: 500;
+
+        u {
+            text-decoration: none;
+            border-bottom: 1.5px solid @c_important;
+            background: @c_highlight;
+        }
+    }
+
+    em {
+        color: @c_em;
+        // font-weight: 600;
+    }
+
+    // 行内引用 用来做淡化显示
+    q {
+        font-size: .9em;
+        background: @c_light;
+        opacity: .5;
+
+        &::before,
+        &::after {
+            content: ''
+        }
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    // 出现在表格内的行内标签
+    .md-linebreak-mark,
+    .md-raw-html-src-content,
+    .md-raw-inline,
+    .md-tag,
+    [md-inline=linebreak] {
+        opacity: 1;
+        .inline-with-bg();
+        background: @c_light;
+        color: inherit;
+        // font-weight: bold;
+    }
+
+    // 音标
+    ruby>rt {
+        font-size: clamp(10px, .5em, 99em) !important;
+    }
+
+    /* ============================== 代码 引用 ==============================*/
+
+    // docsify dark theme
+    code,
+    kbd,
+    code:not([class*="lang-"]):not([class*="language-"]) {
+        color: #AE2;
+        background: @c_dark;
+        border: @code_border;
+        border-radius: @inline_border_radius;
+        padding: 0 .3em;
+        margin: 0 @inline_block_padding;
+        font: bold .9em @monospace;
+        white-space: pre-wrap; // 行内代码尽量规避长代码
+    }
+
+    .code_block {
+        background: @c_dark;
+        color: #FFF;
+        border: @code_border;
+        border-radius: @block_border_radius;
+        padding: @code_block_padding_v @code_block_padding_h;
+        word-break: break-word;
+        white-space: break-spaces;
+    }
+
+    // docsify
+    pre[data-lang] {
+        border-radius: 0;
+        background: none;
+
+        code {
+            margin: 0;
+            .code_block()
+        }
+
+        // docsify language mark (top right)
+        &::after {
+            color: #FFF;
+            top: 0;
+            right: 1em;
+            background: #FFF2;
+            padding: .2em .8em;
+            border-radius: 0 0 .5em .5em;
+        }
+    }
+
+    pre.md-fences {
+        .code_block();
+    }
+
+    // code在行首不留margin-left
+    *[md-inline="code"]:first-child code {
+        margin-left: 0;
+    }
+
+    // typora editor code type, e.g. html/bash
+    .code-tooltip {
+        box-shadow: none;
+        border-radius: @block_border_radius;
+        border: @code_border;
+    }
+
+    kbd {
+        box-shadow: none;
+    }
+
+    kbd+kbd {
+        margin-left: @inline_block_padding;
+    }
+
+    blockquote {
+        padding: .5rem .75rem;
+        border-left: 4px solid @c_border;
+        background: fadeout(@c_light, 50%);
+        color: fadeout(@font_color, 25%);
+        border-radius: 0 @block_border_radius @block_border_radius 0;
+        transition: 1s;
+
+        p {
+            font: .9em/1.5 @sans;
+        }
+
+        &:hover {
+            transition: .2s;
+            border-left: 4px solid @main_color;
+            background: @c_light;
+            color: @font_color;
+        }
+    }
+
+
+    // ============================== 图片
+    img,
+    .md-image {
+        max-width: 100%;
+        max-height: 80vh;
+        display: block;
+        margin: 0 auto;
+        border: none;
+        border-radius: @block_border_radius;
+        box-shadow: 0 0 2px #0000;
+        transition: all .3s !important;
+
+        &:hover {
+            box-shadow: 0 0 2px #0004;
+        }
+    }
+
+    // ============================== 列表
+    ul,
+    ol {
+        margin: .5em 0;
+        padding-left: 3ch;
+
+        li {
+            margin: .5em 0;
+        }
+
+        ul,
+        ol {
+            margin: .3em 0;
+
+            li {
+                margin: .3em 0;
+            }
+        }
+    }
+
+    // typora will add p in li
+    li p {
+        margin: 0;
+    }
+
+    ol li::marker {
+        font-family: @monospace;
+        font-size: .9em;
+    }
+
+    // 处理 checkbox
+    .md-task-list-item,
+    li>label {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: baseline;
+
+        input[type="checkbox"] {
+            width: 1.5em !important;
+            margin: 0 0 0 -1.5em;
+            flex: none;
+            position: inherit;
+        }
+    }
+
+    // ============================== 表格
+
+    table,
+    .md-table {
+        display: table;
+        width: auto;
+        border-radius: @block_border_radius;
+        overflow: hidden;
+        font: .9rem/@line_height @monospace;
+        border-collapse: separate;
+
+        // border: 1px solid @c_dark;
+        th,
+        td {
+            padding: .5em calc(min(.5em + 1vw, 1em));
+            vertical-align: top;
+            border: none;
+
+            &:not(:last-child) {
+                border-right: 1px dashed #8888;
+            }
+        }
+
+        tr:last-child td {
+            border-bottom: none;
+        }
+
+        th {
+            line-height: 1.5em;
+        }
+
+        .table_light();
+        // .table_dark();
+    }
+
+    .table_light {
+        border: 1px solid @c_border;
+
+        th,
+        td {
+            border-bottom: 1px solid @c_border;
+        }
+
+        th {
+            background: @c_light;
+        }
+
+        tbody tr:nth-child(even) {
+            background: fadeout(@c_light, 75%);
+        }
+
+        tbody tr:nth-child(odd) {
+            background: none;
+        }
+    }
+
+    .table_dark {
+
+        th,
+        td {
+            color: white;
+        }
+
+        th {
+            background: @c_dark;
+            color: @c_em;
+        }
+
+        tbody tr:nth-child(even) {
+            background: lighten(@c_dark, 15%);
+        }
+
+        tbody tr:nth-child(odd) {
+            background: lighten(@c_dark, 20%);
+        }
+    }
+
+
+    // ============================== def
+    .md-def-name {
+        color: #888;
+
+        &::before,
+        &::after {
+            color: #888;
+        }
+    }
+
+
+    // ============================== mermaid
+    // typora normal: .md-fences[lang="mermaid"]:not(.md-focus)
+    // typora editing: .md-diagram-panel;
+    // docsify: .mermaid;
+    .md-fences[lang="mermaid"]:not(.md-focus),
+    .md-diagram-panel,
+    .mermaid {
+        background: #FFF;
+
+        * {
+            font-family: @sans  !important;
+        }
+    }
+
+    // typora - move diagram inside the code block
+    pre.md-fences-advanced.md-focus {
+        &[lang="mermaid"] {
+            margin-bottom: 1em !important;
+        }
+
+        .md-fences-adv-panel {
+            position: relative;
+            background: #FFF;
+            border-radius: 0 0 @block_border_radius @block_border_radius;
+            margin: @code_block_padding_v @code_block_padding_h*-1 @code_block_padding_v*-1;
+            width: calc(~"100% + "@code_block_padding_h*2);
+            border: 1px solid @c_dark;
+        }
+    }
+
+    // docsify
+    .mermaid {
+        display: flex;
+        justify-content: center;
+
+        .messageText {
+            stroke: none !important;
+        }
+    }
+}
+
+// ==================== typora focus mode patch
+// fix the header numbering
+.on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) {
+
+    &::before,
+    &::after {
+        color: #C8C8C8 !important;
+        color: var(--blur-text-color) !important;
+    }
+}
+
+// ==================== typora sidebar
+#outline-content {
+    .outline-active {
+        color: @main_color;
+    }
+
+    // .outline-h1,
+    .outline-h2,
+    .outline-h3,
+    .outline-h4,
+    .outline-h5,
+    .outline-h6 {
+
+        &>ul {
+            padding-left: 1em;
+            // border:1px solid red;
+        }
+
+        &>.outline-item {
+            padding-left: 0 !important;
+        }
+    }
+
+    // numbering
+    .outline-h1 {
+        counter-reset: h2;
+
+        &>.outline-item>.outline-label::before {
+            content: ''
+        }
+    }
+
+    .outline-h2 {
+        &>.outline-item>.outline-label::before {
+            display: inline-block;
+            margin-right: .25em;
+            // content: '•';
+            min-width: calc(1em - .25em);
+            text-align: right;
+        }
+
+    }
+
+    .outline-h2>.outline-item>.outline-label::before {
+        counter-increment: h2;
+        content: counter(h2)"."
+    }
+
+    // .outline-h2 {
+    //     counter-reset: h3
+    // }
+    // .outline-h3>.outline-item>.outline-label::before {
+    //     counter-increment: h3;
+    //     content: counter(h2) "."counter(h3)". "
+    // }
+}
+
+// ============================== docsify sidebar
+// 顶部区域
+.sidebar>h1 .app-name-link {
+    font-size: 0;
+
+    img {
+        height: 3em;
+    }
+}
+
+// 文章标题
+.sidebar-nav {
+    margin: 0;
+
+    >a {
+        line-height: 1.25em;
+
+        strong {
+            font-weight: normal;
+        }
+    }
+
+    &.active {
+        position: relative;
+
+        &:before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 100%;
+            left: -50%;
+            background: rgba(255, 255, 255, 1);
+            z-index: -1;
+        }
+
+        >a {
+            border-color: @main_color;
+            color: @main_color;
+
+            strong {
+                font-weight: bold;
+                color: @main_color;
+            }
+        }
+    }
+}
+
+// ============================== docsify mobile
+// main area
+.markdown-section {
+    padding: env(safe-area-inset-top) calc(2em + env(safe-area-inset-left) + env(safe-area-inset-right) + 1vw) env(safe-area-inset-bottom);
+}
+
+// sidebar toggle handle
+.sidebar-toggle .sidebar-toggle-button {
+    zoom: .8;
+    opacity: .5;
+}
