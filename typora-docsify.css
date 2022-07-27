@@ -504,9 +504,7 @@ body,
   color: #222;
 }
 #write img,
-.markdown-section img,
-#write .md-image,
-.markdown-section .md-image {
+.markdown-section img {
   max-width: 100%;
   max-height: 80vh;
   display: block;
@@ -517,9 +515,7 @@ body,
   transition: all 0.3s !important;
 }
 #write img:hover,
-.markdown-section img:hover,
-#write .md-image:hover,
-.markdown-section .md-image:hover {
+.markdown-section img:hover {
   box-shadow: 0 0 2px #0004;
 }
 #write ul,
