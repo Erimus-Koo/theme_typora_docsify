@@ -285,26 +285,29 @@ body,
         .inline-with-bg();
     }
 
-    // add space and avoid break underline
+    // 下划线上的强调元素两侧会打断下划线
+    // 如果用伪类加空格加宽度控制，docsify 在对象后面本来就有空格的情况下，after 后面的原本的那个空格会被“吃”掉。typora 前后有 span 包裹。
+    // 如果用伪类加非空格字符加透明色加宽度控制，可以避免后方空格被吃。
+    // 但任何伪类字符都会影响复制。
     strong,
     b,
     em,
         {
-
-        &::before,
-        &::after {
-            content: ' ';
-            letter-spacing: -.25ch;
-        }
+        margin: 0 @inline_block_margin;
     }
 
     // inline-block margin
     u,
-    del,
-    q,
-    mark,
         {
         margin: 0 @inline_block_margin;
+
+        // 下划线上的强调元素两侧不加间距
+        strong,
+        b,
+        em,
+            {
+            margin: 0;
+        }
     }
 
     p a,

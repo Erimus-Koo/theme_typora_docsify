@@ -2,19 +2,19 @@
 
 ⚠️ I use this file as a <u>**PLAYGROUND**</u>
 
-In [publishing](https://www.wikiwand.com/en/Publishing) and [graphic design](https://www.wikiwand.com/en/Graphic_design), **lorem ipsum** (derived from Latin *dolorem ipsum*, translated as "pain itself") is a [filler text](https://www.wikiwand.com/en/Filler_text) commonly used to demonstrate the graphic elements of a document or visual presentation w. 造没全径 [^2]
+In [publishing](https://www.wikiwand.com/en/Publishing) and [graphic design](https://www.wikiwand.com/en/Graphic_design), **lorem ipsum** (derived from Latin *dolorem ipsum*, translated as "pain itself") is a [filler text](https://www.wikiwand.com/en/Filler_text) commonly used to demonstrate the graphic elements of a document or visual presentation w. 造没全径 [^1]
 
-<ruby>大<rt>da</rt></ruby><ruby>学<rt>xue</rt></ruby>能夠**重点加粗 strong**，<u>下划线 underlinging</u>，然後意志纔<mark>高光 Mark</mark>；意志有了定力，然後~~删除线 del~~，不會<!--注释 前端看不到-->；能做到*斜体 italic*，然後<ruby>纔<rt>才</rt></ruby>能[超链接 Link](http://g.cn)隨遇而安；能夠 `代码 Code`，然後纔能處事精當思慮周詳；能夠思慮周詳，纔能得到至善的境界。
+<ruby>大<rt>da</rt></ruby><ruby>学<rt>xue</rt></ruby>能夠**重点<u>加</u>粗 strong**，<u>下划线 underlinging</u>，然後意志纔<mark>高光 Mark</mark>；意志有了定力，然後~~删除线 del~~，不會<!--注释 前端看不到-->；能做到*斜体 italic*，然後<ruby>纔<rt>才</rt></ruby>能[超链接 Link](http://g.cn)隨遇而安；能夠 `代码 Code`，然後纔能處事精當思慮周詳；能夠思慮周詳，纔能得到至善的境界。
 
 <ruby>大<rt>da</rt></ruby><ruby>学<rt>xue</rt></ruby>第一章是綱要所在， 所講訴的是==**三綱領**==與<u>八條目</u>的連貫性：
 
--   由個人「**<u>明明德</u>**」（<u>格物</u>，<u>致知</u>，<u>誠意</u>，<u>正心</u>，<u>修身</u>）做起；
--   發揮到「**<u><ruby>親<rt>新</rt></ruby>民</u>**」（<u>齊家</u>，<u>治國</u>，<u>平天下</u>）[^1]；
+-   由個人「<u>**明明德**</u>」（<u>格物</u>，<u>致知</u>，<u>誠意</u>，<u>正心</u>，<u>修身</u>）做起；
+-   發揮到「<u>**<ruby>親<rt>新</rt></ruby>民**</u>」（<u>齊家</u>，<u>治國</u>，<u>平天下</u>）[^2]；
 -   以達到「<u>**止於至善**</u>」的境地。
 
-[^1]:	「親民」是使民眾能日新月異，進步不已，革新民意。
+[^2]:	「親民」是使民眾能日新月異，進步不已，革新民意。
 
-能夠**重点加粗 strong 重点加粗 strong 重点加粗 strong 重点加粗 strong 重点加粗 strong**，<u>下划线 underlinging 下**划**线 underlinging 下划线 underlinging</u>，然後<u>**加粗又下划**</u>意志纔<mark>高光 Mark 高光 Mark <u>高光 Mark</u> 高光 Mark 高光 Mark 高光 Mark 高光 Mark 高光 Mark 高光 Mark 高光 Mark</mark>；意志有了定力，然後~~删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del~~，不會<!--妄動-->；能做到*斜体 italic 斜体 italic 斜体 italic 斜体 italic 斜体 italic 斜体 italic 斜体 italic 斜体 italic 斜体 italic 斜体 italic*，然後纔能[超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link](http://g.cn)隨遇而安；能夠`代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code`，然後纔能處事精當思慮周詳；能夠思慮周詳，纔能得到至善的境界。
+能夠**重点加粗 strong 重点加粗 strong 重点加粗 strong 重点加粗 strong 重点加粗 strong**，<u>下划线 underlinging 下**划**线 **underlinging** 下划线 underlinging</u>，然後<u>**加粗又下划**</u>意志纔<mark>高光 Mark 高光 Mark <u>高光 Mark</u> 高光 Mark 高光 Mark 高光 Mark 高光 Mark 高光 Mark 高光 Mark 高光 Mark</mark>；意志有了定力，然後~~删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del 删除线 del~~，不會<!--妄動-->；能做到*斜体 italic 斜体 italic 斜体 italic 斜体 italic 斜体 italic 斜体 italic 斜体 italic 斜体 italic 斜体 italic 斜体 italic*，然後纔能[超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link 超链接 Link](http://g.cn)隨遇而安；能夠`代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code 代码 Code`，然後纔能處事精當思慮周詳；能夠思慮周詳，纔能得到至善的境界。
 
 <q>q 行内引用 淡化 注释</q>
 
@@ -140,4 +140,4 @@ pie title Pets adopted by volunteers
 
 [TOC]
 
-[^2]: _Forked_ from https://en.wikipedia.org/wiki/Lorem_ipsum
+[^1]: _Forked_ from https://en.wikipedia.org/wiki/Lorem_ipsum
