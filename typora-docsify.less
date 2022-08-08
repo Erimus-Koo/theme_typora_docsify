@@ -479,15 +479,26 @@ body,
     }
 
     blockquote {
-        padding: .5rem .75rem;
+        @block-gap: .75rem;
+        padding: @block-gap .75rem;
         border-left: 4px solid @c_border;
         background: fadeout(@c_light, 50%);
         color: fadeout(@font_color, 25%);
         border-radius: 0 @block_border_radius @block_border_radius 0;
         transition: 1s;
 
+
         p {
             font: .9em/1.5 @sans;
+            margin: @block-gap 0;
+
+            &:first-child {
+                margin-top: 0;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
 
         &:hover {

@@ -480,7 +480,7 @@ body,
 }
 #write blockquote,
 .markdown-section blockquote {
-  padding: 0.5rem 0.75rem;
+  padding: 0.75rem 0.75rem;
   border-left: 4px solid #CCC;
   background: rgba(238, 238, 238, 0.5);
   color: rgba(34, 34, 34, 0.75);
@@ -490,6 +490,15 @@ body,
 #write blockquote p,
 .markdown-section blockquote p {
   font: 0.9em/1.5 'Poppins', 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', sans-serif;
+  margin: 0.75rem 0;
+}
+#write blockquote p:first-child,
+.markdown-section blockquote p:first-child {
+  margin-top: 0;
+}
+#write blockquote p:last-child,
+.markdown-section blockquote p:last-child {
+  margin-bottom: 0;
 }
 #write blockquote:hover,
 .markdown-section blockquote:hover {
