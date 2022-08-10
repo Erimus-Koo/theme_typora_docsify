@@ -20,8 +20,8 @@
 @block_border_radius: .5em;
 @sans: 'Poppins', 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', sans-serif;
 @monospace: 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
-@inline_block_padding: .25rem;
-@inline_block_margin: .05rem;
+@inline_block_padding: .3rem;
+@inline_block_margin: .1rem;
 @code_block_padding_v: .75em;
 @code_block_padding_h: 1em;
 @line_height: 1.75;
@@ -417,10 +417,11 @@ body,
         background: @c_dark;
         border: @code_border;
         border-radius: @inline_border_radius;
-        padding: 0 .3em;
-        margin: 0 @inline_block_padding;
+        padding: .1em @inline_block_padding;
+        margin: 0 @inline_block_margin;
         font: bold .9em @monospace;
         white-space: pre-wrap; // 行内代码尽量规避长代码
+        min-width: auto;
     }
 
     .code_block {
@@ -459,9 +460,9 @@ body,
     }
 
     // code在行首不留margin-left
-    *[md-inline="code"]:first-child code {
-        margin-left: 0;
-    }
+    // *[md-inline="code"]:first-child code {
+    //     margin-left: 0;
+    // }
 
     // typora editor code type, e.g. html/bash
     .code-tooltip {
@@ -475,7 +476,7 @@ body,
     }
 
     kbd+kbd {
-        margin-left: @inline_block_padding;
+        margin: 0 @inline_block_margin;
     }
 
     blockquote {

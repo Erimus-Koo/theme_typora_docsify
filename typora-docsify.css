@@ -277,8 +277,8 @@ body,
 }
 #write .inline-with-bg,
 .markdown-section .inline-with-bg {
-  padding: 0 0.25rem;
-  margin: 0 0.05rem;
+  padding: 0 0.3rem;
+  margin: 0 0.1rem;
   border-radius: 0.25em;
 }
 #write p a,
@@ -291,8 +291,8 @@ body,
 .markdown-section q,
 #write mark,
 .markdown-section mark {
-  padding: 0 0.25rem;
-  margin: 0 0.05rem;
+  padding: 0 0.3rem;
+  margin: 0 0.1rem;
   border-radius: 0.25em;
 }
 #write strong,
@@ -301,11 +301,11 @@ body,
 .markdown-section b,
 #write em,
 .markdown-section em {
-  margin: 0 0.05rem;
+  margin: 0 0.1rem;
 }
 #write u,
 .markdown-section u {
-  margin: 0 0.05rem;
+  margin: 0 0.1rem;
 }
 #write u strong,
 .markdown-section u strong,
@@ -390,8 +390,8 @@ body,
 #write [md-inline=linebreak],
 .markdown-section [md-inline=linebreak] {
   opacity: 1;
-  padding: 0 0.25rem;
-  margin: 0 0.05rem;
+  padding: 0 0.3rem;
+  margin: 0 0.1rem;
   border-radius: 0.25em;
   background: #EEE;
   color: inherit;
@@ -410,10 +410,11 @@ body,
   background: #333;
   border: 0px solid transparent;
   border-radius: 0.25em;
-  padding: 0 0.3em;
-  margin: 0 0.25rem;
+  padding: 0.1em 0.3rem;
+  margin: 0 0.1rem;
   font: bold 0.9em 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
   white-space: pre-wrap;
+  min-width: auto;
 }
 #write .code_block,
 .markdown-section .code_block {
@@ -460,10 +461,6 @@ body,
   word-break: break-word;
   white-space: break-spaces;
 }
-#write *[md-inline="code"]:first-child code,
-.markdown-section *[md-inline="code"]:first-child code {
-  margin-left: 0;
-}
 #write .code-tooltip,
 .markdown-section .code-tooltip {
   box-shadow: none;
@@ -476,7 +473,7 @@ body,
 }
 #write kbd + kbd,
 .markdown-section kbd + kbd {
-  margin-left: 0.25rem;
+  margin: 0 0.1rem;
 }
 #write blockquote,
 .markdown-section blockquote {
