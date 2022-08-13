@@ -37,7 +37,7 @@
     // --window-border: 1px solid red; //边栏等的边框 很少出现
 
     // side bar menu
-    --active-file-bg-color: fadeout(@c_dark, 90%);
+    --active-file-bg-color: fadeout(@c_dark, 95%);
     // --active-file-text-color: #FFF;
     --active-file-border-color: @main_color;
     --side-bar-bg-color: @c_light;
@@ -99,9 +99,8 @@ body,
 
         // header numbering
         &::before {
+            font: 400 .8em @sans;
             color: inherit;
-            font-size: 0.8em;
-            font-weight: normal;
             margin-right: .5rem;
             border: none;
             position: relative;
@@ -197,32 +196,32 @@ body,
     // skip h1, because I usually use H1 as main title
     h2::before {
         counter-increment: h2;
-        content: counter(h2) "."
+        content: counter(h2)"."
     }
 
     h3::before,
         {
         counter-increment: h3;
-        content: counter(h2) "."counter(h3)
+        content: counter(h2)"."counter(h3)
     }
 
     h4::before,
         {
         counter-increment: h4;
-        content: counter(h2) "."counter(h3) "."counter(h4)
+        content: counter(h2)"."counter(h3) "."counter(h4)
     }
 
     h5::before,
         {
         counter-increment: h5;
-        // content: counter(h2) "."counter(h3) "."counter(h4) "."counter(h5)
+        // content: counter(h2)"."counter(h3) "."counter(h4) "."counter(h5)
         content: none;
     }
 
     h6::before,
         {
         counter-increment: h6;
-        // content: counter(h2) "."counter(h3) "."counter(h4) "."counter(h5) "."counter(h6)
+        // content: counter(h2)"."counter(h3) "."counter(h4) "."counter(h5) "."counter(h6)
         content: none;
     }
 
@@ -255,7 +254,7 @@ body,
     pre[data-lang],
     //docsify
     blockquote,
-    table,
+    table:not(.md-grid-board),
     ul,
     ol,
     hr {
@@ -553,8 +552,7 @@ body,
     }
 
     ol li::marker {
-        font-family: @monospace;
-        font-size: .9em;
+        font: .9em @monospace;
     }
 
     // 处理 checkbox
@@ -574,7 +572,7 @@ body,
 
     // ============================== 表格
 
-    table,
+    table:not(.md-grid-board),
     .md-table {
         display: table;
         width: auto;
@@ -715,59 +713,156 @@ body,
 
 // ==================== typora sidebar
 #outline-content {
-    .outline-active {
-        color: @main_color;
-    }
+    padding: 0 .5em;
+    font: 400 .8em @monospace;
+    @header-indent: 2ch;
+    @item-padding-h: .5em;
 
-    // .outline-h1,
-    .outline-h2,
-    .outline-h3,
-    .outline-h4,
-    .outline-h5,
-    .outline-h6 {
-
-        &>ul {
-            padding-left: 1em;
-            // border:1px solid red;
+    // 控制标题层级和标题的关系
+    li {
+        ul {
+            padding-left: @header-indent; // 控制标题缩进
+            // border: 1px solid red;
         }
 
-        &>.outline-item {
-            padding-left: 0 !important;
+        .outline-item {
+            // 标题项
+            padding: .5em @item-padding-h  !important;
+            margin: 0;
+            border: none;
+            border-radius: .25em;
+
+            // 展开箭头
+            .outline-expander {
+                padding-right: 1ch;
+            }
+
+            .outline-label {
+                font: 1.25em @sans;
+
+                &:hover {
+                    text-decoration: none; //注销原本的样式 会有下划线粗细不匀的问题
+                }
+            }
+
+            &::before {
+                display: inline-block;
+                flex: none;
+                // min-width: calc(1em - .25em);
+                // text-align: right;
+                padding: .3em .25em;
+                // margin-right: .25em;
+                position: absolute;
+                text-align: right;
+                opacity: 0;
+                transition: all 3s;
+
+                &:hover {
+                    color: #FFF;
+                    background: red;
+                    border-radius: .25em;
+                    z-index: 99;
+                }
+            }
+
+            // 悬浮显示标题
+            &:hover,
+            .outline-active {
+                &::before {
+                    opacity: .75;
+                    transition: all 0s;
+                }
+            }
+
+            &:hover {
+                background-color: inherit;
+            }
+
+            // 当前滚动位置 - 激活状态
+            .outline-active {
+                color: @main_color;
+                font-weight: bold !important;
+            }
         }
     }
 
     // numbering
     .outline-h1 {
         counter-reset: h2;
+        overflow: hidden;
 
-        &>.outline-item>.outline-label::before {
-            content: ''
+        &>ul {
+            padding-left: @header-indent+@item-padding-h;
         }
     }
 
     .outline-h2 {
-        &>.outline-item>.outline-label::before {
-            display: inline-block;
-            margin-right: .25em;
-            // content: '•';
-            min-width: calc(1em - .25em);
-            text-align: right;
+        padding: 2px 0;
+        counter-reset: h3;
+        counter-increment: h2;
+
+        // top divide line
+        &::before {
+            content: '';
+            display: block;
+            height: 1px;
+            width: 200%;
+            position: absolute;
+            top: 0;
+            left: -50%;
+            border-top: 1px solid #0001;
         }
 
+        &>.outline-item::before {
+            content: counter(h2);
+            min-width: @header-indent*1;
+            left: @header-indent*-1;
+            opacity: .75;
+        }
     }
 
-    .outline-h2>.outline-item>.outline-label::before {
-        counter-increment: h2;
-        content: counter(h2)"."
+    .outline-h3 {
+        counter-reset: h4;
+        counter-increment: h3;
+
+        &>.outline-item::before {
+            content: counter(h2)"."counter(h3);
+            min-width: @header-indent*2;
+            left: @header-indent*-2;
+        }
     }
 
-    // .outline-h2 {
-    //     counter-reset: h3
-    // }
-    // .outline-h3>.outline-item>.outline-label::before {
-    //     counter-increment: h3;
-    //     content: counter(h2) "."counter(h3)". "
-    // }
+    .outline-h4 {
+        counter-reset: h5;
+        counter-increment: h4;
+
+        &>.outline-item::before {
+            content: counter(h2)"."counter(h3)"."counter(h4);
+            min-width: @header-indent*3;
+            left: @header-indent*-3;
+        }
+    }
+
+    .outline-h5 {
+        counter-reset: h6;
+        counter-increment: h5;
+
+        &>.outline-item::before {
+            content: counter(h2)"."counter(h3)"."counter(h4)"."counter(h5);
+            min-width: @header-indent*4;
+            left: @header-indent*-4;
+        }
+    }
+
+    .outline-h6 {
+        counter-increment: h6;
+
+        &>.outline-item::before {
+            content: counter(h2)"."counter(h3)"."counter(h4)"."counter(h5)"."counter(h6);
+            min-width: @header-indent*5;
+            left: @header-indent*-5;
+        }
+    }
 }
 
 // ============================== docsify sidebar
