@@ -14,17 +14,18 @@
     <!-- Theme: Simple (latest v0.x.x) -->
     <link rel="stylesheet" href="typora-docsify/theme-simple.css" />
     <link rel="stylesheet" href="typora-docsify.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-okaidia.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/themes/prism-okaidia.min.css">
 </head>
 
 <body>
     <div id="app"></div>
     <script src="//unpkg.com/docsify/lib/docsify.min.js"></script>
+
     <!-- 关系图插件 -->
     <script src="//unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>
     // mermaid init
-    var num = 0;
+    let num = 0;
     mermaid.initialize({ startOnLoad: false, pie: { useMaxWidth: false } });
 
     // 配置说明 https://docsify.js.org/#/zh-cn/configuration
@@ -82,7 +83,7 @@
                     //适配Markdown的====高亮语法
                     let res = html.match(/==(.+?)==/g);
                     if (res) {
-                        for (var i = 0; i < res.length; i++) {
+                        for (let i in res) {
                             html = html.replace(res[i], `<mark>` + res[i].replace(/==/g, "") + `</mark>`);
                         }
                     }
@@ -111,18 +112,45 @@
     <script src="//unpkg.com/docsify-pagination/dist/docsify-pagination.min.js"></script>
     <!-- 增加引用框的类型 -->
     <!-- https://github.com/fzankl/docsify-plugin-flexible-alerts -->
-    <!-- <script src="https://unpkg.com/docsify-plugin-flexible-alerts"></script> -->
+    <!-- <script src="//unpkg.com/docsify-plugin-flexible-alerts"></script> -->
     <!-- 图片放大 -->
     <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
     <!-- 复制代码 -->
-    <script src="https://unpkg.com/docsify-copy-code"></script>
-    <!-- 代码高亮 -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-core.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js"></script>
+    <script src="//unpkg.com/docsify-copy-code"></script>
     <!-- wikilink -->
-    <script src="https://cdn.jsdelivr.net/npm/docsify-wikilink"></script>
+    <script src="//cdn.jsdelivr.net/npm/docsify-wikilink"></script>
     <!-- TOC -->
     <!-- <script src="//unpkg.com/docsify-plugin-toc"></script> -->
+
+    <!-- 代码高亮 -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism.min.js"></script>
+    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/plugins/autoloader/prism-autoloader.min.js"></script> -->
+    <script>
+    window.onload = async function() {
+        let codeTypes = [];
+        let allCodes = document.querySelectorAll('pre code')
+        for (let i in allCodes) {
+            let code = allCodes[i]
+            const type = code.className.replace('lang-', '')
+            if (type) {
+                // import js
+                if (!codeTypes.includes(type)) {
+                    codeTypes.push(type)
+                    try {
+                        await import(`//cdnjs.cloudflare.com/ajax/libs/prism/1.28.0/components/prism-${type}.min.js`)
+                        console.log('import success:', type)
+
+                    } catch (error) {
+                        console.warn('error:', error)
+                    }
+                }
+
+                // apply prism
+                Prism.highlightElement(code)
+            }
+        }
+    }
+    </script>
 </body>
 
 </html>

@@ -118,6 +118,14 @@ Block level contains:
     </body>
 </html>
 ```
+```python
+def add(*arg):
+    return sum(arg)
+print(f'{add(1,2,3)}'')
+```
+```bash
+echo "abc" >> abc.txt
+```
 
 ```mermaid
 sequenceDiagram
