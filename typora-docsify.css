@@ -559,22 +559,18 @@ body,
 .markdown-section ol li::marker {
   font: 0.9em 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
 }
-#write .md-task-list-item,
-.markdown-section .md-task-list-item,
-#write li > label,
-.markdown-section li > label {
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: baseline;
+#write .task-list-item,
+.markdown-section .task-list-item {
+  margin-left: 0 !important;
+  position: relative;
 }
-#write .md-task-list-item input[type="checkbox"],
-.markdown-section .md-task-list-item input[type="checkbox"],
-#write li > label input[type="checkbox"],
-.markdown-section li > label input[type="checkbox"] {
+#write .task-list-item input[type="checkbox"],
+.markdown-section .task-list-item input[type="checkbox"] {
   width: 1.5em !important;
-  margin: 0 0 0 -1.5em;
-  flex: none;
-  position: inherit;
+  margin: 0;
+  position: absolute;
+  left: -1.5em;
+  top: 0.5em;
 }
 #write table:not(.md-grid-board),
 .markdown-section table:not(.md-grid-board),

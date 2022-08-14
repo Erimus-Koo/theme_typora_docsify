@@ -556,17 +556,16 @@ body,
     }
 
     // 处理 checkbox
-    .md-task-list-item,
-    li>label {
-        display: flex;
-        flex-flow: row nowrap;
-        align-items: baseline;
+    .task-list-item {
+        margin-left: 0 !important;
+        position: relative;
 
         input[type="checkbox"] {
             width: 1.5em !important;
-            margin: 0 0 0 -1.5em;
-            flex: none;
-            position: inherit;
+            margin: 0;
+            position: absolute;
+            left: -1.5em;
+            top: .5em;
         }
     }
 

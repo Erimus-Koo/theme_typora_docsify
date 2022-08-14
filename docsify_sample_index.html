@@ -87,13 +87,15 @@
                             html = html.replace(res[i], `<mark>` + res[i].replace(/==/g, "") + `</mark>`);
                         }
                     }
-                    //适配Markdown的^^上标语法
-                    // res = html.match(/\^(.+?)\^/g);
-                    // if (res) {
-                    //     for (var i = 0; i < res.length; i++) {
-                    //         html = html.replace(res[i], `<sup>` + res[i].replace(/\^/g, "") + `</sup>`);
-                    //     }
-                    // }
+                    // todolist
+                    res = html.match(/(?<=- )\s{0,4}\[(x|\s)\]/g);
+                    console.log('res:', res)
+                    if (res) {
+                        for (let i in res) {
+                            console.log('res[i]:', res[i])
+                            html = html.replace(res[i], `<input type="checkbox" ${(res[i].indexOf("x")==-1)?"":"checked"} />`);
+                        }
+                    }
                     //将更新时间加到文档的尾部
                     return html + '\n<q>Last Modified: {docsify-updated}</q>';
                 })

@@ -100,6 +100,8 @@ Block level contains:
         sub-unordered list item 1. line 2.
     -   sub-unordered list item 2.
         -   [x] something is DONE.
+            -   [x] sub todo.
+            -   [ ] sub todo.
         -   [ ] ordered list item ordered list item ordered list item ordered list item ordered list item ordered list item something is not TODO.
 
 ```html
@@ -121,7 +123,7 @@ Block level contains:
 ```python
 def add(*arg):
     return sum(arg)
-print(f'{add(1,2,3)}'')
+print(f'{add(1,2,3)}')
 ```
 ```bash
 echo "abc" >> abc.txt
