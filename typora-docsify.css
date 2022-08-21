@@ -280,10 +280,6 @@ body,
   margin: 0 0.1rem;
   border-radius: 0.25em;
 }
-#write p a,
-.markdown-section p a,
-#write li a,
-.markdown-section li a,
 #write del,
 .markdown-section del,
 #write q,
@@ -316,8 +312,13 @@ body,
 }
 #write p a,
 .markdown-section p a,
+#write table a,
+.markdown-section table a,
 #write li a,
 .markdown-section li a {
+  padding: 0 0.3rem;
+  margin: 0 0.1rem;
+  border-radius: 0.25em;
   color: #93F;
   padding: 0;
   transition: 1s;

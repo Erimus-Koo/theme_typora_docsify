@@ -275,9 +275,6 @@ body,
         border-radius: @inline_border_radius;
     }
 
-    // without hedaer a
-    p a,
-    li a,
     del,
     q,
     mark {
@@ -309,8 +306,11 @@ body,
         }
     }
 
+    // without hedaer a
     p a,
+    table a,
     li a {
+        .inline-with-bg();
         color: @c_link;
         padding: 0;
         transition: 1s;
