@@ -33,7 +33,7 @@ body,
 .markdown-section *::before,
 #write *::after,
 .markdown-section *::after {
-  word-break: break-word;
+  word-break: normal;
   box-sizing: border-box;
   box-decoration-break: clone;
   -webkit-box-decoration-break: clone;
@@ -593,7 +593,7 @@ body,
 .markdown-section table:not(.md-grid-board) td,
 #write .md-table td,
 .markdown-section .md-table td {
-  padding: 0.5em calc(1em);
+  padding: 0.5em clamp(0.5em, 1vw, 2em);
   vertical-align: top;
   border: none;
 }
@@ -736,6 +736,12 @@ body,
 .markdown-section .mermaid .messageText {
   stroke: none !important;
 }
+table .md-br,
+table .md-br-content {
+  font-size: 0;
+  padding: 0 !important;
+  margin: 0!important;
+}
 .on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container)::before,
 .on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container)::after {
   color: #C8C8C8 !important;
@@ -805,12 +811,12 @@ body,
 #outline-content .outline-h2::before {
   content: '';
   display: block;
-  height: 1px;
+  height: 0px;
   width: 200%;
   position: absolute;
   top: 0;
   left: -50%;
-  border-top: 1px solid #0001;
+  border-top: 0.5px solid #0001;
 }
 #outline-content .outline-h2 > .outline-item::before {
   content: counter(h2);

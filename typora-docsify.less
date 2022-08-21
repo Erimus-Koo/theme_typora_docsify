@@ -66,7 +66,7 @@ body,
     *,
     *::before,
     *::after {
-        word-break: break-word;
+        word-break: normal;
         box-sizing: border-box;
         box-decoration-break: clone;
         -webkit-box-decoration-break: clone;
@@ -583,7 +583,7 @@ body,
         // border: 1px solid @c_dark;
         th,
         td {
-            padding: .5em calc(min(.5em + 1vw, 1em));
+            padding: .5em clamp(.5em, 1vw, 2em);
             vertical-align: top;
             border: none;
 
@@ -699,6 +699,18 @@ body,
     }
 }
 
+// ==================== typora br patch
+table {
+
+    .md-br,
+    .md-br-content {
+        font-size: 0;
+        padding: 0 !important;
+        margin: 0!important;
+    }
+}
+
+
 // ==================== typora focus mode patch
 // fix the header numbering
 .on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container) {
@@ -804,12 +816,12 @@ body,
         &::before {
             content: '';
             display: block;
-            height: 1px;
+            height: 0px;
             width: 200%;
             position: absolute;
             top: 0;
             left: -50%;
-            border-top: 1px solid #0001;
+            border-top: .5px solid #0001;
         }
 
         &>.outline-item::before {
