@@ -706,7 +706,7 @@ table {
     .md-br-content {
         font-size: 0;
         padding: 0 !important;
-        margin: 0!important;
+        margin: 0 !important;
     }
 }
 
@@ -879,10 +879,12 @@ table {
 // ============================== docsify sidebar
 // 顶部区域
 .sidebar>h1 .app-name-link {
-    font-size: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     img {
-        height: 3em;
+        max-height: 3em;
     }
 }
 

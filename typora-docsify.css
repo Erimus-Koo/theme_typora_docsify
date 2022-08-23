@@ -740,7 +740,7 @@ table .md-br,
 table .md-br-content {
   font-size: 0;
   padding: 0 !important;
-  margin: 0!important;
+  margin: 0 !important;
 }
 .on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container)::before,
 .on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container)::after {
@@ -860,10 +860,12 @@ table .md-br-content {
   left: -10ch;
 }
 .sidebar > h1 .app-name-link {
-  font-size: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .sidebar > h1 .app-name-link img {
-  height: 3em;
+  max-height: 3em;
 }
 .sidebar-nav {
   margin: 0;
