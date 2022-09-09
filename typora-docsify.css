@@ -504,6 +504,8 @@ body,
   background: #EEE;
   color: #222;
 }
+#write .md-image,
+.markdown-section .md-image,
 #write img,
 .markdown-section img {
   max-width: 100%;
@@ -515,9 +517,15 @@ body,
   box-shadow: 0 0 2px #0000;
   transition: all 0.3s !important;
 }
+#write .md-image:hover,
+.markdown-section .md-image:hover,
 #write img:hover,
 .markdown-section img:hover {
   box-shadow: 0 0 2px #0004;
+}
+#write .md-image + .md-softbreak,
+.markdown-section .md-image + .md-softbreak {
+  height: 1em;
 }
 #write ul,
 .markdown-section ul,

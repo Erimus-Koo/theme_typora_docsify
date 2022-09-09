@@ -511,6 +511,7 @@ body,
 
 
     // ============================== 图片
+    .md-image,
     img {
         max-width: 100%;
         max-height: 80vh;
@@ -524,6 +525,11 @@ body,
         &:hover {
             box-shadow: 0 0 2px #0004;
         }
+    }
+
+    // 图片和图片间的软换行增加间距
+    .md-image+.md-softbreak {
+        height: 1em;
     }
 
     // ============================== 列表
