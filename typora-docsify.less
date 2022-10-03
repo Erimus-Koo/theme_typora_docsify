@@ -406,7 +406,7 @@ body,
         font-size: clamp(10px, .5em, 99em) !important;
     }
 
-    /* ============================== 代码 引用 ==============================*/
+    // ============================== 代码 引用
 
     // docsify dark theme
     code,
@@ -509,6 +509,26 @@ body,
         }
     }
 
+    // pre yaml
+    pre.md-meta-block,
+    hr:first-child+p {
+        .code_block();
+        background: fadeout(@c_light, 50%);
+        font: .75rem/1.5 @monospace;
+        color: @font_color;
+        opacity: .5;
+        transition: opacity 1s;
+
+        &:hover {
+            opacity: 1;
+            transition: opacity .3s;
+        }
+    }
+
+    hr:first-child,
+    hr:first-child+p+hr {
+        display: none;
+    }
 
     // ============================== 图片
     .md-image,

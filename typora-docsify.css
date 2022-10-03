@@ -25,7 +25,6 @@ body,
   max-width: 40em;
   padding-left: 2em;
   padding-right: 2em;
-  /* ============================== 代码 引用 ==============================*/
 }
 #write *,
 .markdown-section *,
@@ -503,6 +502,36 @@ body,
   border-left: 4px solid #24D;
   background: #EEE;
   color: #222;
+}
+#write pre.md-meta-block,
+.markdown-section pre.md-meta-block,
+#write hr:first-child + p,
+.markdown-section hr:first-child + p {
+  background: #333;
+  color: #FFF;
+  border: 0px solid transparent;
+  border-radius: 0.5em;
+  padding: 0.75em 1em;
+  word-break: break-word;
+  white-space: break-spaces;
+  background: rgba(238, 238, 238, 0.5);
+  font: 0.75rem/1.5 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
+  color: #222;
+  opacity: 0.5;
+  transition: opacity 1s;
+}
+#write pre.md-meta-block:hover,
+.markdown-section pre.md-meta-block:hover,
+#write hr:first-child + p:hover,
+.markdown-section hr:first-child + p:hover {
+  opacity: 1;
+  transition: opacity 0.3s;
+}
+#write hr:first-child,
+.markdown-section hr:first-child,
+#write hr:first-child + p + hr,
+.markdown-section hr:first-child + p + hr {
+  display: none;
 }
 #write .md-image,
 .markdown-section .md-image,

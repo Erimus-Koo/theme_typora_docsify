@@ -1,3 +1,9 @@
+---
+test yaml
+date created: 2022-10-03 19:46:17
+date modified: 2022-10-03 22:29:23
+---
+
 # [Playground]()
 
 ⚠️ I use this file as a <u>**PLAYGROUND**</u>
