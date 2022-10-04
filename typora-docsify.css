@@ -405,8 +405,8 @@ body,
 .markdown-section kbd,
 #write code:not([class*="lang-"]):not([class*="language-"]),
 .markdown-section code:not([class*="lang-"]):not([class*="language-"]) {
-  color: #AE2;
-  background: #333;
+  color: #06B;
+  background: #EEE;
   border: 0px solid transparent;
   border-radius: 0.25em;
   padding: 0.1em 0.3rem;
