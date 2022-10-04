@@ -748,6 +748,29 @@ table {
     }
 }
 
+// ==================== typora edit mode
+#typora-source {
+    font-family: @monospace !important;
+
+    .CodeMirror-code>div {
+        // display: flex;
+        // flex-flow: row nowrap;
+        // align-items: center;
+    }
+
+    .CodeMirror-gutter-wrapper,
+    .CodeMirror-linenumber {
+        // position: relative !important;
+    }
+
+    // line number
+    .CodeMirror-linenumber {
+        visibility: visible;
+        font-family: @monospace;
+    }
+}
+
+
 // ==================== typora sidebar
 #outline-content {
     padding: 0 .5em;

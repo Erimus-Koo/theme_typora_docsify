@@ -784,6 +784,13 @@ table .md-br-content {
   color: #C8C8C8 !important;
   color: var(--blur-text-color) !important;
 }
+#typora-source {
+  font-family: 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace !important;
+}
+#typora-source .CodeMirror-linenumber {
+  visibility: visible;
+  font-family: 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
+}
 #outline-content {
   padding: 0 0.5em;
   font: 400 0.8em 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
