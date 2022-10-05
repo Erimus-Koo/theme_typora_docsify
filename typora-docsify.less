@@ -487,6 +487,7 @@ body,
         box-shadow: none;
     }
 
+    // 连续的按键块增加间距
     kbd+kbd {
         margin: 0 @inline_block_margin;
     }
@@ -616,14 +617,13 @@ body,
         width: auto;
         border-radius: @block_border_radius;
         overflow: hidden;
-        font: .9rem/@line_height @monospace;
+        font: .9rem/1.25 @monospace;
         border-collapse: separate;
-        line-height: 1.5em;
 
         // border: 1px solid @c_dark;
         th,
         td {
-            padding: .5em clamp(.5em, 1vw, 2em);
+            padding: .5em clamp(.5em, 2vw, 2em);
             vertical-align: top;
             border: none;
 

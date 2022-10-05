@@ -629,9 +629,8 @@ body,
   width: auto;
   border-radius: 0.5em;
   overflow: hidden;
-  font: 0.9rem/1.75 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
+  font: 0.9rem/1.25 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
   border-collapse: separate;
-  line-height: 1.5em;
   border: 1px solid #8884;
 }
 #write table:not(.md-grid-board) th,
@@ -642,7 +641,7 @@ body,
 .markdown-section table:not(.md-grid-board) td,
 #write .md-table td,
 .markdown-section .md-table td {
-  padding: 0.5em clamp(0.5em, 1vw, 2em);
+  padding: 0.5em clamp(0.5em, 2vw, 2em);
   vertical-align: top;
   border: none;
 }
