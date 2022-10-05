@@ -26,6 +26,8 @@ In [publishing](https://www.wikiwand.com/en/Publishing) and [graphic design](
 
 在 Finder 里面直接按 <kbd>⌘⇧.</kbd> （<kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>.</kbd>）即可切换隐藏文件显示与隐藏。
 
+---
+
 ## Title 1
 
 ### Title Level 2
@@ -48,7 +50,7 @@ In [publishing](https://www.wikiwand.com/en/Publishing) and [graphic design](
 <span style="font-size:16px;font-weight:700">誠實精進 Bold *600 / 16*</span>
 <span style="font-size:16px;font-weight:400">誠實精進 Normal *400*</span>
 
-
+---
 
 A common form of *lorem ipsum* reads:
 

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.useso.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('typora-docsify/codeblock.css');
 :root {
   --bg-color: #FFF;
@@ -7,7 +7,7 @@
   --primary-color: #24D;
   --active-file-bg-color: rgba(51, 51, 51, 0.05);
   --active-file-border-color: #24D;
-  --side-bar-bg-color: #EEE;
+  --side-bar-bg-color: #8882;
   --item-hover-bg-color: rgba(127, 127, 127, 0.1);
   --item-hover-text-color: inherit;
   --monospace: 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
@@ -262,16 +262,23 @@ body,
 #write ul,
 .markdown-section ul,
 #write ol,
-.markdown-section ol,
-#write hr,
-.markdown-section hr {
+.markdown-section ol {
   margin: 1rem 0;
 }
 #write hr,
-.markdown-section hr {
+.markdown-section hr,
+#write .md-hr,
+.markdown-section .md-hr {
+  margin: 2rem 0;
   height: 0;
   border: none;
-  border-bottom: 1px dotted #24D;
+  border-bottom: 1px solid #8884;
+}
+#write hr + h2,
+.markdown-section hr + h2,
+#write .md-hr + h2,
+.markdown-section .md-hr + h2 {
+  margin-top: calc(-2rem + 2px) !important;
 }
 #write .inline-with-bg,
 .markdown-section .inline-with-bg {
@@ -341,7 +348,7 @@ body,
 #write del,
 .markdown-section del {
   color: rgba(34, 34, 34, 0.5);
-  background: #EEE;
+  background: #8882;
 }
 #write u,
 .markdown-section u {
@@ -351,6 +358,10 @@ body,
 .markdown-section mark {
   color: #F30;
   background: #FF4;
+}
+#write mark strong,
+.markdown-section mark strong {
+  color: #F30;
 }
 #write mark u,
 .markdown-section mark u {
@@ -365,7 +376,7 @@ body,
 #write q,
 .markdown-section q {
   font-size: 0.9em;
-  background: #EEE;
+  background: #8882;
   opacity: 0.5;
 }
 #write q::before,
@@ -392,7 +403,7 @@ body,
   padding: 0 0.3rem;
   margin: 0 0.1rem;
   border-radius: 0.25em;
-  background: #EEE;
+  background: #8882;
   color: inherit;
 }
 #write ruby > rt,
@@ -406,7 +417,7 @@ body,
 #write code:not([class*="lang-"]):not([class*="language-"]),
 .markdown-section code:not([class*="lang-"]):not([class*="language-"]) {
   color: #06B;
-  background: #EEE;
+  background: #8882;
   border: 0px solid transparent;
   border-radius: 0.25em;
   padding: 0.1em 0.3rem;
@@ -477,8 +488,8 @@ body,
 #write blockquote,
 .markdown-section blockquote {
   padding: 0.75rem 0.75rem;
-  border-left: 4px solid #CCC;
-  background: rgba(238, 238, 238, 0.5);
+  border-left: 4px solid #8884;
+  background: rgba(136, 136, 136, 0);
   color: rgba(34, 34, 34, 0.75);
   border-radius: 0 0.5em 0.5em 0;
   transition: 1s;
@@ -500,7 +511,7 @@ body,
 .markdown-section blockquote:hover {
   transition: 0.2s;
   border-left: 4px solid #24D;
-  background: #EEE;
+  background: #8882;
   color: #222;
 }
 #write pre.md-meta-block,
@@ -514,7 +525,7 @@ body,
   padding: 0.75em 1em;
   word-break: break-word;
   white-space: break-spaces;
-  background: rgba(238, 238, 238, 0.5);
+  background: #8882;
   font: 0.75rem/1.5 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
   color: #222;
   opacity: 0.5;
@@ -620,7 +631,8 @@ body,
   overflow: hidden;
   font: 0.9rem/1.75 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
   border-collapse: separate;
-  border: 1px solid #CCC;
+  line-height: 1.5em;
+  border: 1px solid #8884;
 }
 #write table:not(.md-grid-board) th,
 .markdown-section table:not(.md-grid-board) th,
@@ -653,30 +665,24 @@ body,
 #write table:not(.md-grid-board) th,
 .markdown-section table:not(.md-grid-board) th,
 #write .md-table th,
-.markdown-section .md-table th {
-  line-height: 1.5em;
-}
-#write table:not(.md-grid-board) th,
-.markdown-section table:not(.md-grid-board) th,
-#write .md-table th,
 .markdown-section .md-table th,
 #write table:not(.md-grid-board) td,
 .markdown-section table:not(.md-grid-board) td,
 #write .md-table td,
 .markdown-section .md-table td {
-  border-bottom: 1px solid #CCC;
+  border-bottom: 1px solid #8884;
 }
 #write table:not(.md-grid-board) th,
 .markdown-section table:not(.md-grid-board) th,
 #write .md-table th,
 .markdown-section .md-table th {
-  background: #EEE;
+  background: #8882;
 }
 #write table:not(.md-grid-board) tbody tr:nth-child(even),
 .markdown-section table:not(.md-grid-board) tbody tr:nth-child(even),
 #write .md-table tbody tr:nth-child(even),
 .markdown-section .md-table tbody tr:nth-child(even) {
-  background: rgba(238, 238, 238, 0.25);
+  background: rgba(136, 136, 136, 0);
 }
 #write table:not(.md-grid-board) tbody tr:nth-child(odd),
 .markdown-section table:not(.md-grid-board) tbody tr:nth-child(odd),
@@ -686,21 +692,21 @@ body,
 }
 #write .table_light,
 .markdown-section .table_light {
-  border: 1px solid #CCC;
+  border: 1px solid #8884;
 }
 #write .table_light th,
 .markdown-section .table_light th,
 #write .table_light td,
 .markdown-section .table_light td {
-  border-bottom: 1px solid #CCC;
+  border-bottom: 1px solid #8884;
 }
 #write .table_light th,
 .markdown-section .table_light th {
-  background: #EEE;
+  background: #8882;
 }
 #write .table_light tbody tr:nth-child(even),
 .markdown-section .table_light tbody tr:nth-child(even) {
-  background: rgba(238, 238, 238, 0.25);
+  background: rgba(136, 136, 136, 0);
 }
 #write .table_light tbody tr:nth-child(odd),
 .markdown-section .table_light tbody tr:nth-child(odd) {

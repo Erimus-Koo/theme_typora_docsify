@@ -1,7 +1,8 @@
 // write by sublimetext and linter plugin less2css
 
 // import google fonts
-@import (css) url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+// @import (css) url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import (css) url('https://fonts.useso.com/css2?family=Poppins:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 // import code block css
 @import url('typora-docsify/codeblock.css');
 
@@ -11,9 +12,9 @@
 @c_link: #93F;
 @c_em: #F69;
 @c_dark: #333;
-@c_light: #EEE;
+@c_light: #8882;
 @code_border: 0px solid transparent;
-@c_border: #CCC;
+@c_border: #8884;
 @c_important: #F30;
 @c_highlight: #FF4;
 @inline_border_radius: .25em;
@@ -256,16 +257,23 @@ body,
     blockquote,
     table:not(.md-grid-board),
     ul,
-    ol,
-    hr {
+    ol {
         margin: 1rem 0;
     }
 
-    hr {
+    hr,
+    .md-hr {
+        margin: 2rem 0;
         height: 0;
         border: none;
-        border-bottom: 1px dotted @main_color;
+        border-bottom: 1px solid #8884;
+
+        // h2顶部会画一条线 所以hr后的h2要调整下
+        &+h2 {
+            margin-top: calc(-2rem + 2px) !important;
+        }
     }
+
 
     // ============================== 行内元素
     // 行内有背景的小块元素
@@ -353,12 +361,17 @@ body,
         // text-decoration: none;
         // border-bottom: 1px solid @c_important;
         text-decoration-color: @c_important;
+        // text-underline-position: under;
     }
 
     mark {
         color: @c_important;
         background: @c_highlight;
+
         // font-weight: 500;
+        strong {
+            color: @c_important;
+        }
 
         u {
             text-decoration: none;
@@ -513,7 +526,7 @@ body,
     pre.md-meta-block,
     hr:first-child+p {
         .code_block();
-        background: fadeout(@c_light, 50%);
+        background: @c_light;
         font: .75rem/1.5 @monospace;
         color: @font_color;
         opacity: .5;
@@ -605,6 +618,7 @@ body,
         overflow: hidden;
         font: .9rem/@line_height @monospace;
         border-collapse: separate;
+        line-height: 1.5em;
 
         // border: 1px solid @c_dark;
         th,
@@ -620,10 +634,6 @@ body,
 
         tr:last-child td {
             border-bottom: none;
-        }
-
-        th {
-            line-height: 1.5em;
         }
 
         .table_light();
@@ -750,7 +760,7 @@ table {
 
 // ==================== typora edit mode
 #typora-source {
-    font-family: @monospace !important;
+    font-family: @monospace  !important;
 
     .CodeMirror-code>div {
         // display: flex;
