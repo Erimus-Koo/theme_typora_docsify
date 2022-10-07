@@ -488,6 +488,7 @@ body,
     }
 
     // 连续的按键块增加间距
+    // [A]=([B]+[C]) B左侧也可能会被加上边距 如果括号没有被元素包裹
     kbd+kbd {
         margin-left: @inline_block_margin;
     }
@@ -623,7 +624,7 @@ body,
         // border: 1px solid @c_dark;
         th,
         td {
-            padding: .5em clamp(.5em, 2vw, 2em);
+            padding: .5em clamp(.5em, 1vw, 2em);
             vertical-align: top;
             border: none;
 

@@ -641,7 +641,7 @@ body,
 .markdown-section table:not(.md-grid-board) td,
 #write .md-table td,
 .markdown-section .md-table td {
-  padding: 0.5em clamp(0.5em, 2vw, 2em);
+  padding: 0.5em clamp(0.5em, 1vw, 2em);
   vertical-align: top;
   border: none;
 }
