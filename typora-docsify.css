@@ -908,6 +908,16 @@ table .md-br-content {
   min-width: 10ch;
   left: -10ch;
 }
+.sidebar-footer {
+  border-top-color: #8882;
+}
+.pin-outline #typora-sidebar .sidebar-footer:not(.show-sidebar-footer-context) {
+  opacity: 1;
+  display: block;
+}
+#typora-sidebar.use-file-tree-style .sidebar-footer-item:not(#sidebar-new-file-btn) {
+  opacity: 1;
+}
 .sidebar > h1 .app-name-link {
   display: flex;
   justify-content: center;

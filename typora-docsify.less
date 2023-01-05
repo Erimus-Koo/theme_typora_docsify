@@ -936,6 +936,18 @@ table {
     }
 }
 
+// 侧边栏不用hover就显示当前文件夹
+.sidebar-footer{
+    border-top-color: @c_light;
+}
+.pin-outline #typora-sidebar .sidebar-footer:not(.show-sidebar-footer-context) {
+    opacity: 1;
+    display: block;
+}
+#typora-sidebar.use-file-tree-style .sidebar-footer-item:not(#sidebar-new-file-btn){
+    opacity:1;
+}
+
 // ============================== docsify sidebar
 // 顶部区域
 .sidebar>h1 .app-name-link {
