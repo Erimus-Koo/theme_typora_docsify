@@ -402,7 +402,6 @@ body,
     }
 
     // 出现在表格内的行内标签
-    .md-linebreak-mark,
     .md-raw-html-src-content,
     .md-raw-inline,
     .md-tag,
@@ -737,6 +736,15 @@ body,
 }
 
 // ==================== typora br patch
+.md-linebreak {
+    font-size: 0;
+
+    .md-linebreak-mark {
+        font-size: .8rem;
+        opacity: .25!important;
+    }
+}
+
 table {
 
     .md-br,

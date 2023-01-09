@@ -389,8 +389,6 @@ body,
 .markdown-section q:hover {
   opacity: 1;
 }
-#write .md-linebreak-mark,
-.markdown-section .md-linebreak-mark,
 #write .md-raw-html-src-content,
 .markdown-section .md-raw-html-src-content,
 #write .md-raw-inline,
@@ -777,6 +775,13 @@ body,
 #write .mermaid .messageText,
 .markdown-section .mermaid .messageText {
   stroke: none !important;
+}
+.md-linebreak {
+  font-size: 0;
+}
+.md-linebreak .md-linebreak-mark {
+  font-size: 0.8rem;
+  opacity: 0.25 !important;
 }
 table .md-br,
 table .md-br-content {
