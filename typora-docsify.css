@@ -1,6 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;800&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 @import url('typora-docsify/codeblock.css');
 :root {
+  --h1-color: #24D;
+  --h2-color: #24D;
+  --h3-color: #24D;
+  --h4-color: #24D;
+  --h5-color: #24D;
+  --h6-color: #24D;
+  --h2-color: #33F;
+  --h3-color: #93F;
+  --h4-color: #F39;
+  --h5-color: #F63;
+  --h6-color: #3C3;
+}
+:root {
   --bg-color: #FFF;
   --text-color: #222;
   --meta-content-color: #06B;
@@ -142,6 +155,7 @@ body,
 #write h1 *,
 .markdown-section h1 * {
   font: 2rem 'Poppins', 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', sans-serif;
+  color: var(--h1-color);
 }
 #write h2,
 .markdown-section h2 {
@@ -156,12 +170,14 @@ body,
 #write h2 *,
 .markdown-section h2 * {
   font-size: 1.75rem;
+  color: var(--h2-color);
 }
 #write h3,
 .markdown-section h3,
 #write h3 *,
 .markdown-section h3 * {
   font-size: 1.5rem;
+  color: var(--h3-color);
 }
 #write h4,
 .markdown-section h4,
@@ -169,20 +185,23 @@ body,
 .markdown-section h4 * {
   font-size: 1.25rem;
   font-weight: 500;
+  color: var(--h4-color);
 }
 #write h5,
 .markdown-section h5,
 #write h5 *,
 .markdown-section h5 * {
   font-size: 1.125rem;
-  font-weight: 600;
+  font-weight: 500;
+  color: var(--h5-color);
 }
 #write h6,
 .markdown-section h6,
 #write h6 *,
 .markdown-section h6 * {
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 500;
+  color: var(--h6-color);
 }
 #write h1,
 .markdown-section h1 {
@@ -737,6 +756,11 @@ body,
 #write .md-def-name::after,
 .markdown-section .md-def-name::after {
   color: #888;
+}
+#write abbr,
+.markdown-section abbr {
+  text-decoration: underline;
+  text-decoration-color: #24D;
 }
 #write .md-fences[lang="mermaid"]:not(.md-focus),
 .markdown-section .md-fences[lang="mermaid"]:not(.md-focus),

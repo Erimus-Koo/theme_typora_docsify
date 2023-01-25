@@ -17,6 +17,7 @@
 @c_border: #8884;
 @c_important: #F30;
 @c_highlight: #FF4;
+@c_abbr: #0903;
 @inline_border_radius: .25em;
 @block_border_radius: .5em;
 @sans: 'Poppins', 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', sans-serif;
@@ -26,6 +27,22 @@
 @code_block_padding_v: .75em;
 @code_block_padding_h: 1em;
 @line_height: 1.75;
+
+// 给不同级的标题染色 类似obsidian的minimal主题
+:root {
+    --h1-color: @main_color;
+    --h2-color: @main_color;
+    --h3-color: @main_color;
+    --h4-color: @main_color;
+    --h5-color: @main_color;
+    --h6-color: @main_color;
+    // 如果不想用彩色的标题，就注释掉以下几行
+    --h2-color: #33F;
+    --h3-color: #93F;
+    --h4-color: #F39;
+    --h5-color: #F63;
+    --h6-color: #3C3;
+}
 
 //for typora
 :root {
@@ -128,6 +145,7 @@ body,
 
     h1 * {
         font: 2rem @sans;
+        color: var(--h1-color);
     }
 
     h2 {
@@ -141,29 +159,34 @@ body,
     h2,
     h2 * {
         font-size: 1.75rem;
+        color: var(--h2-color);
     }
 
     h3,
     h3 * {
         font-size: 1.5rem;
+        color: var(--h3-color);
     }
 
     h4,
     h4 * {
         font-size: 1.25rem;
         font-weight: 500;
+        color: var(--h4-color);
     }
 
     h5,
     h5 * {
         font-size: 1.125rem;
-        font-weight: 600;
+        font-weight: 500;
+        color: var(--h5-color);
     }
 
     h6,
     h6 * {
         font-size: 1rem;
-        font-weight: 700;
+        font-weight: 500;
+        color: var(--h6-color);
     }
 
     // ==================== Auto Numbering for Headings
@@ -248,7 +271,9 @@ body,
         content: ' H6'
     }
 
+
     // ============================== 段落 & 块元素
+
     p,
     pre.md-fences,
     //typora
@@ -693,6 +718,14 @@ body,
         }
     }
 
+    // ============================== abbr
+    // <abbr title="展开解释">缩写的内容</abbr>
+    abbr {
+        text-decoration: underline;
+        text-decoration-color: @main_color;
+        // text-decoration-style: dashed;
+        // background: @c_abbr;
+    }
 
     // ============================== mermaid
     // typora normal: .md-fences[lang="mermaid"]:not(.md-focus)
@@ -741,7 +774,7 @@ body,
 
     .md-linebreak-mark {
         font-size: .8rem;
-        opacity: .25!important;
+        opacity: .25 !important;
     }
 }
 
@@ -945,15 +978,17 @@ table {
 }
 
 // 侧边栏不用hover就显示当前文件夹
-.sidebar-footer{
+.sidebar-footer {
     border-top-color: @c_light;
 }
+
 .pin-outline #typora-sidebar .sidebar-footer:not(.show-sidebar-footer-context) {
     opacity: 1;
     display: block;
 }
-#typora-sidebar.use-file-tree-style .sidebar-footer-item:not(#sidebar-new-file-btn){
-    opacity:1;
+
+#typora-sidebar.use-file-tree-style .sidebar-footer-item:not(#sidebar-new-file-btn) {
+    opacity: 1;
 }
 
 // ============================== docsify sidebar
