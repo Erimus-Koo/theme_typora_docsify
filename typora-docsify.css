@@ -69,6 +69,11 @@
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: 'Emoji';
+  src: local('AppleColorEmoji'), local('Segoe UI Emoji');
+  unicode-range: U+300-FFFF;
+}
 :root {
   --h1-color: #24D;
   --h2-color: #24D;
@@ -92,13 +97,13 @@
   --side-bar-bg-color: #EEE;
   --item-hover-bg-color: rgba(127, 127, 127, 0.1);
   --item-hover-text-color: inherit;
-  --monospace: 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
+  --monospace: Emoji, "JetBrainsMono Nerd Font", "JetBrains Mono", Menlo, Consolas, "Source Han Sans HC", "PingFang", "Noto Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", monospace;
 }
 html,
 body,
 #write {
   background: #FFF;
-  font: 400 1rem/1.75 Number, 'Poppins', 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', sans-serif;
+  font: 400 1rem/1.75 Emoji, Number, "Poppins", "Source Han Sans HC", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Roboto, "PingFang SC", "Noto Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", sans-serif;
   color: #222;
   min-height: 100vh;
 }
@@ -148,7 +153,7 @@ body,
 #write h6 *,
 .markdown-section h6 * {
   color: #24D;
-  font-family: Number, 'Poppins', 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', sans-serif;
+  font-family: Emoji, Number, "Poppins", "Source Han Sans HC", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Roboto, "PingFang SC", "Noto Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", sans-serif;
   font-weight: normal;
   padding: 0 !important;
   margin: 1em 0 0 !important;
@@ -178,7 +183,7 @@ body,
 .markdown-section h6::before,
 #write h6 *::before,
 .markdown-section h6 *::before {
-  font: 400 0.8em Number, 'Poppins', 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', sans-serif;
+  font: 400 0.8em Emoji, Number, "Poppins", "Source Han Sans HC", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Roboto, "PingFang SC", "Noto Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", sans-serif;
   color: inherit;
   margin-right: 0.5rem;
   border: none;
@@ -223,7 +228,7 @@ body,
 }
 #write h1 *,
 .markdown-section h1 * {
-  font: 2rem Number, 'Poppins', 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', sans-serif;
+  font: 2rem Emoji, Number, "Poppins", "Source Han Sans HC", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Roboto, "PingFang SC", "Noto Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", sans-serif;
   color: var(--h1-color);
 }
 #write h2,
@@ -514,7 +519,7 @@ body,
   border-radius: 0.25em;
   padding: 0.1em 0.3rem;
   margin: 0 0.1rem;
-  font: bold 0.9em 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
+  font: bold 0.9em Emoji, "JetBrainsMono Nerd Font", "JetBrains Mono", Menlo, Consolas, "Source Han Sans HC", "PingFang", "Noto Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", monospace;
   white-space: pre-wrap;
   min-width: auto;
 }
@@ -588,7 +593,7 @@ body,
 }
 #write blockquote p,
 .markdown-section blockquote p {
-  font: 0.9em/1.5 Number, 'Poppins', 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', sans-serif;
+  font: 0.9em/1.5 Emoji, Number, "Poppins", "Source Han Sans HC", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Roboto, "PingFang SC", "Noto Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", sans-serif;
   margin: 0.75rem 0;
 }
 #write blockquote p:first-child,
@@ -618,7 +623,7 @@ body,
   word-break: break-word;
   white-space: break-spaces;
   background: #8882;
-  font: 0.75rem/1.5 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
+  font: 0.75rem/1.5 Emoji, "JetBrainsMono Nerd Font", "JetBrains Mono", Menlo, Consolas, "Source Han Sans HC", "PingFang", "Noto Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", monospace;
   color: #222;
   opacity: 0.5;
   transition: opacity 1s;
@@ -698,7 +703,7 @@ body,
 }
 #write ol li::marker,
 .markdown-section ol li::marker {
-  font: 0.9em 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
+  font: 0.9em Emoji, "JetBrainsMono Nerd Font", "JetBrains Mono", Menlo, Consolas, "Source Han Sans HC", "PingFang", "Noto Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", monospace;
 }
 #write .task-list-item,
 .markdown-section .task-list-item {
@@ -721,7 +726,7 @@ body,
   width: auto;
   border-radius: 0.5em;
   overflow: hidden;
-  font: 0.9rem/1.25 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
+  font: 0.9rem/1.25 Emoji, "JetBrainsMono Nerd Font", "JetBrains Mono", Menlo, Consolas, "Source Han Sans HC", "PingFang", "Noto Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", monospace;
   border-collapse: separate;
   border: 1px solid #8884;
 }
@@ -851,7 +856,7 @@ body,
 .markdown-section .md-diagram-panel *,
 #write .mermaid *,
 .markdown-section .mermaid * {
-  font-family: Number, 'Poppins', 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', sans-serif !important;
+  font-family: Emoji, Number, "Poppins", "Source Han Sans HC", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Roboto, "PingFang SC", "Noto Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", sans-serif !important;
 }
 #write pre.md-fences-advanced.md-focus[lang="mermaid"],
 .markdown-section pre.md-fences-advanced.md-focus[lang="mermaid"] {
@@ -894,15 +899,15 @@ table .md-br-content {
   color: var(--blur-text-color) !important;
 }
 #typora-source {
-  font-family: 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace !important;
+  font-family: Emoji, "JetBrainsMono Nerd Font", "JetBrains Mono", Menlo, Consolas, "Source Han Sans HC", "PingFang", "Noto Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", monospace !important;
 }
 #typora-source .CodeMirror-linenumber {
   visibility: visible;
-  font-family: 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
+  font-family: Emoji, "JetBrainsMono Nerd Font", "JetBrains Mono", Menlo, Consolas, "Source Han Sans HC", "PingFang", "Noto Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", monospace;
 }
 #outline-content {
   padding: 0 0.5em;
-  font: 400 0.8em 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
+  font: 400 0.8em Emoji, "JetBrainsMono Nerd Font", "JetBrains Mono", Menlo, Consolas, "Source Han Sans HC", "PingFang", "Noto Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", monospace;
 }
 #outline-content li ul {
   padding-left: 2ch;
@@ -917,7 +922,7 @@ table .md-br-content {
   padding-right: 1ch;
 }
 #outline-content li .outline-item .outline-label {
-  font: 1.25em Number, 'Poppins', 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', sans-serif;
+  font: 1.25em Emoji, Number, "Poppins", "Source Han Sans HC", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Roboto, "PingFang SC", "Noto Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", sans-serif;
 }
 #outline-content li .outline-item .outline-label:hover {
   text-decoration: none;

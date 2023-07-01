@@ -4,7 +4,7 @@
 @import url('typora-docsify/codeblock.css');
 
 // import google fonts
-// @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,400;0,600;1,400;1,600&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
 // 数字部分使用 Barlow
@@ -26,6 +26,23 @@
     font-display: swap;
 }
 
+// 优先启用表情图标 避免被 Nerd Font 等大字符集覆盖，比如⚠️
+// 但emoji会覆盖数字，所以要限定一下emoji的适用范围，避开常用拉丁文。
+// 苹果: "AppleColorEmoji", Win: "Segoe UI Emoji"
+@font-face{
+    font-family: 'Emoji';
+    src: local('AppleColorEmoji'), local('Segoe UI Emoji');
+    unicode-range: U+300-FFFF;
+}
+// 优先启用：Emoji, Number, "Poppins", "Source Han Sans HC",
+// 苹果英文：-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI",
+// 安卓英文：Roboto,
+// 苹果中文："PingFang SC",
+// 安卓中文："Noto Sans", "Noto Sans CJK SC",
+// Win中文："Microsoft YaHei", "微软雅黑",
+@sans: Emoji, Number, "Poppins", "Source Han Sans HC", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Roboto, "PingFang SC", "Noto Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", sans-serif;
+@monospace: Emoji, "JetBrainsMono Nerd Font", "JetBrains Mono", Menlo, Consolas, "Source Han Sans HC", "PingFang", "Noto Sans", "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", monospace;
+
 //for docsify
 @font_color: #222;
 @main_color: #24D;
@@ -40,8 +57,6 @@
 @c_abbr: #0903;
 @inline_border_radius: .25em;
 @block_border_radius: .5em;
-@sans: Number, 'Poppins', 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', sans-serif;
-@monospace: 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
 @inline_block_padding: .3rem;
 @inline_block_margin: .1rem;
 @code_block_padding_v: .75em;
