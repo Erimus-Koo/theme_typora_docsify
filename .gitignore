@@ -1,2 +1,14 @@
 *ignore.*
 *.sublime*
+
+# default themes
+github/
+github.css
+newsprint/
+newsprint.css
+night/
+night.css
+old-themes/
+pixyll/
+pixyll.css
+whitey.css

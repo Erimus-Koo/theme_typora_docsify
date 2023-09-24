@@ -1,37 +1,119 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600;800&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap');
-@import url('typora-docsify/codeblock.css');
-:root {
-  --h1-color: #24D;
-  --h2-color: #24D;
-  --h3-color: #24D;
-  --h4-color: #24D;
-  --h5-color: #24D;
-  --h6-color: #24D;
-  --h2-color: #33F;
-  --h3-color: #93F;
-  --h4-color: #F39;
-  --h5-color: #F63;
-  --h6-color: #3C3;
+@import url("typora-docsify/codeblock.css");
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap");
+/* 数字部分使用 Barlow
+字重500跟400的Poppins比较配
+https://fonts.googleapis.com/css2?family=Barlow:wght@400;600
+https://transfonter.org
+1234567890.,-+\/@
+[0-9]U+30-39, [%]U+25, [+,-./]U+2B-2F, [\]U+5C, [@]U+40 
+*/
+@font-face {
+  font-family: "Number";
+  src: local("Barlow"), url(https://fonts.gstatic.com/s/barlow/v12/7cHqv4kjgoGqM7E3_-gs51os.woff2) format("woff2");
+  font-weight: 400;
+  unicode-range: U+30-39, U+25, U+2B-2F, U+5C;
+}
+@font-face {
+  font-family: "Number";
+  src: local("Barlow"), url(https://fonts.gstatic.com/s/barlow/v12/7cHqv4kjgoGqM7E30-8s51ostz0rdg.woff2) format("woff2");
+  font-weight: 600;
+  unicode-range: U+30-39, U+25, U+2B-2F, U+5C;
+}
+/* 优先启用表情图标 避免被 Nerd Font 等大字符集覆盖，比如⚠️
+但emoji会覆盖数字，所以要限定一下emoji的适用范围，避开常用拉丁文。
+苹果: "AppleColorEmoji", Win: "Segoe UI Emoji" */
+@font-face {
+  font-family: "Emoji";
+  src: local("AppleColorEmoji"), local("Segoe UI Emoji");
+  unicode-range: U+300-FFFF;
 }
 :root {
-  --bg-color: #FFF;
-  --text-color: #222;
-  --meta-content-color: #06B;
-  --primary-color: #24D;
-  --active-file-bg-color: rgba(51, 51, 51, 0.05);
-  --active-file-border-color: #24D;
-  --side-bar-bg-color: #EEE;
+  /* 
+特殊字体：Emoji, Number, 
+优先英文："Poppins", 
+优先中文："Source Han Sans HC",
+苹果中文："SF Pro HK", "SF Pro Text", "SF Pro Icons", "PingFang HK",
+安卓中文："Noto Sans", "Noto Sans CJK SC",
+Win中文："Microsoft YaHei", "微软雅黑",
+苹果英文：-apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI",
+安卓英文：Roboto, */
+  --sans: Emoji, Number, "Poppins", "Source Han Sans HC", "SF Pro HK",
+    "SF Pro Text", "SF Pro Icons", "PingFang HK", "Noto Sans",
+    "Noto Sans CJK SC", "Microsoft YaHei", "微软雅黑", -apple-system,
+    BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Roboto, sans-serif;
+  --font-family: var(--sans);
+  --monospace: Emoji, "JetBrainsMono Nerd Font", "JetBrains Mono", Menlo,
+    Consolas, "Source Han Sans HC", "SF Pro HK", "SF Pro Text", "SF Pro Icons",
+    "PingFang HK", "Noto Sans", "Noto Sans CJK SC", "Microsoft YaHei",
+    "微软雅黑", monospace;
+  --theme-color: #24d;
+  --color-dark: #333;
+  --color-light: #8882;
+  --color-border: #8884;
+  --color-important: #f30;
+  --color-highlight: #ff4;
+  --color-abbr: #0903;
+  --block-border-radius: 0.5em;
+  --block-margin: 1em;
+  --code-block-padding-v: 0.75em;
+  --code-block-padding-h: 1em;
+  --code-block-bg-color: #000c;
+  --code-border: 0px solid transparent;
+  --inline-block-padding: 0.3rem;
+  --inline-block-margin: 0.1rem;
+  --color-inline-block-bg: #8882;
+  --inline-border-radius: 0.25em;
+  --line-height: 1.75;
+  --font-weight: 400;
+  --font-weight-bold: 600;
+  --text-color: #333;
+  --color-link: #93f;
+  --color-em: #f69;
+  --color-underline: #f33;
+  --color-mark-text: #f33;
+  --color-mark-bg: #ff3;
+  --color-inline-code: #06b;
+  --h1-color: var(--theme-color);
+  --h2-color: var(--theme-color);
+  --h3-color: var(--theme-color);
+  --h4-color: var(--theme-color);
+  --h5-color: var(--theme-color);
+  --h6-color: var(--theme-color);
+  --h1-color: #f33;
+  --h2-color: #33f;
+  --h3-color: #93f;
+  --h4-color: #f39;
+  --h5-color: #f63;
+  --h6-color: #3c3;
+  --bg-color: #fff;
+  --meta-content-color: var(--theme-color);
+  --primary-color: var(--theme-color);
+  --active-file-bg-color: var(--color-light);
+  --active-file-border-color: var(--theme-color);
+  --side-bar-bg-color: #eee;
   --item-hover-bg-color: rgba(127, 127, 127, 0.1);
   --item-hover-text-color: inherit;
-  --monospace: 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
 }
 html,
 body,
 #write {
-  background: #FFF;
-  font: 400 1rem/1.75 'Poppins', 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', sans-serif;
-  color: #222;
+  font: 400 1rem / var(--line-height) var(--font-family);
+  word-break: normal;
   min-height: 100vh;
+  /* 字体渲染 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* 行内元素跨行复制断开处样式 */
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  /* iOS overflow滚动时保持橡皮筋效果 */
+  -webkit-overflow-scrolling: touch;
+  /* iOS 横屏字号变化关闭 */
+  text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  /* iOS 点击区域不出现灰色 */
+  -webkit-tap-highlight-color: transparent;
 }
 #write,
 .markdown-section {
@@ -45,14 +127,7 @@ body,
 .markdown-section *::before,
 #write *::after,
 .markdown-section *::after {
-  word-break: normal;
   box-sizing: border-box;
-  box-decoration-break: clone;
-  -webkit-box-decoration-break: clone;
-  -webkit-font-smoothing: antialiased;
-  -webkit-overflow-scrolling: touch;
-  -webkit-text-size-adjust: none;
-  -webkit-tap-highlight-color: transparent;
 }
 #write h1,
 .markdown-section h1,
@@ -78,12 +153,13 @@ body,
 .markdown-section h6,
 #write h6 *,
 .markdown-section h6 * {
-  color: #24D;
-  font-family: 'Poppins', 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', sans-serif;
+  color: var(--theme-color);
+  font-family: var(--sans);
   font-weight: normal;
   padding: 0 !important;
-  margin: 1em 0 0 !important;
+  margin: 1rem 0 0 !important;
   line-height: 1.25 !important;
+  text-wrap: balance;
 }
 #write h1::before,
 .markdown-section h1::before,
@@ -109,7 +185,7 @@ body,
 .markdown-section h6::before,
 #write h6 *::before,
 .markdown-section h6 *::before {
-  font: 400 0.8em 'Poppins', 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', sans-serif;
+  font: 400 0.8em var(--sans);
   color: inherit;
   margin-right: 0.5rem;
   border: none;
@@ -145,24 +221,24 @@ body,
 .markdown-section h6.md-focus:after,
 #write h6 *.md-focus:after,
 .markdown-section h6 *.md-focus:after {
-  color: #BBB;
+  opacity: 0.25;
   font-size: 0.8em;
 }
 #write h1:first-child,
 .markdown-section h1:first-child {
-  padding-top: 3em !important;
+  padding-top: 5rem !important;
 }
 #write h1 *,
 .markdown-section h1 * {
-  font: 2rem 'Poppins', 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', sans-serif;
+  font-size: 2rem;
   color: var(--h1-color);
 }
 #write h2,
 .markdown-section h2 {
   border: none;
-  border-top: 1px solid #24D;
-  padding-top: 1em !important;
-  margin-top: 2em !important;
+  border-top: 1px solid var(--theme-color);
+  padding-top: 1.5rem !important;
+  margin-top: 2rem !important;
   display: block;
 }
 #write h2,
@@ -250,38 +326,38 @@ body,
 }
 #write h2.md-focus::after,
 .markdown-section h2.md-focus::after {
-  content: ' H2';
+  content: " H2";
 }
 #write h3.md-focus::after,
 .markdown-section h3.md-focus::after {
-  content: ' H3';
+  content: " H3";
 }
 #write h4.md-focus::after,
 .markdown-section h4.md-focus::after {
-  content: ' H4';
+  content: " H4";
 }
 #write h5.md-focus::after,
 .markdown-section h5.md-focus::after {
-  content: ' H5';
+  content: " H5";
 }
 #write h6.md-focus::after,
 .markdown-section h6.md-focus::after {
-  content: ' H6';
+  content: " H6";
 }
 #write p,
 .markdown-section p,
+#write blockquote,
+.markdown-section blockquote,
+#write ul,
+.markdown-section ul,
+#write ol,
+.markdown-section ol,
 #write pre.md-fences,
 .markdown-section pre.md-fences,
 #write pre[data-lang],
 .markdown-section pre[data-lang],
-#write blockquote,
-.markdown-section blockquote,
 #write table:not(.md-grid-board),
-.markdown-section table:not(.md-grid-board),
-#write ul,
-.markdown-section ul,
-#write ol,
-.markdown-section ol {
+.markdown-section table:not(.md-grid-board) {
   margin: 1rem 0;
 }
 #write hr,
@@ -297,13 +373,14 @@ body,
 .markdown-section hr + h2,
 #write .md-hr + h2,
 .markdown-section .md-hr + h2 {
-  margin-top: calc(-2rem + 2px) !important;
+  margin-top: -2rem !important;
 }
 #write .inline-with-bg,
 .markdown-section .inline-with-bg {
-  padding: 0 0.3rem;
-  margin: 0 0.1rem;
-  border-radius: 0.25em;
+  padding: 0.1em var(--inline-block-padding);
+  margin: 0.5em var(--inline-block-margin);
+  border-radius: var(--inline-border-radius);
+  background: var(--color-inline-block-bg);
 }
 #write del,
 .markdown-section del,
@@ -311,9 +388,10 @@ body,
 .markdown-section q,
 #write mark,
 .markdown-section mark {
-  padding: 0 0.3rem;
-  margin: 0 0.1rem;
-  border-radius: 0.25em;
+  padding: 0.1em var(--inline-block-padding);
+  margin: 0.5em var(--inline-block-margin);
+  border-radius: var(--inline-border-radius);
+  background: var(--color-inline-block-bg);
 }
 #write strong,
 .markdown-section strong,
@@ -321,11 +399,11 @@ body,
 .markdown-section b,
 #write em,
 .markdown-section em {
-  margin: 0 0.1rem;
+  margin: 0 var(--inline-block-margin);
 }
 #write u,
 .markdown-section u {
-  margin: 0 0.1rem;
+  margin: 0 var(--inline-block-margin);
 }
 #write u strong,
 .markdown-section u strong,
@@ -341,72 +419,79 @@ body,
 .markdown-section table a,
 #write li a,
 .markdown-section li a {
-  padding: 0 0.3rem;
-  margin: 0 0.1rem;
-  border-radius: 0.25em;
-  color: #93F;
+  padding: 0.1em var(--inline-block-padding);
+  margin: 0.5em var(--inline-block-margin);
+  border-radius: var(--inline-border-radius);
+  background: var(--color-inline-block-bg);
+  color: var(--color-link);
   padding: 0;
+  background: transparent;
   transition: 1s;
 }
 #write a:hover,
 .markdown-section a:hover {
-  color: #F30;
-  background: #FF4;
-  text-decoration-color: red;
+  color: var(--color-important);
+  text-decoration-color: var(--color-underline);
+  background: var(--color-highlight);
   transition: 0.3s;
 }
+#write h1 a,
+.markdown-section h1 a,
 #write a.anchor,
 .markdown-section a.anchor {
   text-decoration: underline;
   text-decoration-color: transparent;
 }
+#write h1 a:hover,
+.markdown-section h1 a:hover,
 #write a.anchor:hover,
 .markdown-section a.anchor:hover {
-  background: #FF4;
+  background: var(--color-highlight);
 }
 #write del,
 .markdown-section del {
-  color: rgba(34, 34, 34, 0.5);
-  background: #8882;
+  color: var(--text-color);
+  opacity: 0.5;
 }
 #write u,
 .markdown-section u {
-  text-decoration-color: #F30;
+  text-decoration-color: var(--color-underline);
 }
 #write mark,
 .markdown-section mark {
-  color: #F30;
-  background: #FF4;
+  color: var(--color-mark-text);
+  background: var(--color-mark-bg);
 }
 #write mark strong,
 .markdown-section mark strong {
-  color: #F30;
+  color: var(--color-important);
 }
 #write mark u,
 .markdown-section mark u {
   text-decoration: none;
-  border-bottom: 1.5px solid #F30;
-  background: #FF4;
+  border-bottom: 1.5px solid var(--color-underline);
 }
 #write em,
 .markdown-section em {
-  color: #F69;
+  color: var(--color-em);
 }
 #write q,
 .markdown-section q {
   font-size: 0.9em;
-  background: #8882;
   opacity: 0.5;
+  line-height: var(--line-height);
+  transition: opacity 1s;
 }
 #write q::before,
 .markdown-section q::before,
 #write q::after,
 .markdown-section q::after {
-  content: '';
+  content: "";
 }
 #write q:hover,
 .markdown-section q:hover {
   opacity: 1;
+  transition: opacity 0.3s;
 }
 #write .md-raw-html-src-content,
 .markdown-section .md-raw-html-src-content,
@@ -414,18 +499,19 @@ body,
 .markdown-section .md-raw-inline,
 #write .md-tag,
 .markdown-section .md-tag,
-#write [md-inline=linebreak],
-.markdown-section [md-inline=linebreak] {
+#write [md-inline="linebreak"],
+.markdown-section [md-inline="linebreak"] {
   opacity: 1;
-  padding: 0 0.3rem;
-  margin: 0 0.1rem;
-  border-radius: 0.25em;
-  background: #8882;
+  padding: 0.1em var(--inline-block-padding);
+  margin: 0.5em var(--inline-block-margin);
+  border-radius: var(--inline-border-radius);
+  background: var(--color-inline-block-bg);
+  background: var(--color-light);
   color: inherit;
 }
 #write ruby > rt,
 .markdown-section ruby > rt {
-  font-size: clamp(10px, 0.5em, 99em) !important;
+  font-size: clamp(10px, 0.5em, 100px) !important;
 }
 #write code,
 .markdown-section code,
@@ -433,23 +519,23 @@ body,
 .markdown-section kbd,
 #write code:not([class*="lang-"]):not([class*="language-"]),
 .markdown-section code:not([class*="lang-"]):not([class*="language-"]) {
-  color: #06B;
-  background: #8882;
-  border: 0px solid transparent;
-  border-radius: 0.25em;
-  padding: 0.1em 0.3rem;
-  margin: 0 0.1rem;
-  font: bold 0.9em 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
+  color: var(--color-inline-code);
+  background: var(--color-light);
+  border: var(--code-border);
+  border-radius: var(--inline-border-radius);
+  padding: 0.1em var(--inline-block-padding);
+  margin: 0 var(--inline-block-margin);
+  font: bold 0.9em var(--monospace);
   white-space: pre-wrap;
-  min-width: auto;
+  min-width: unset;
 }
 #write .code_block,
 .markdown-section .code_block {
-  background: #333;
-  color: #FFF;
-  border: 0px solid transparent;
-  border-radius: 0.5em;
-  padding: 0.75em 1em;
+  background: var(--code-block-bg-color);
+  color: #fff;
+  border: var(--code-border);
+  border-radius: var(--block-border-radius);
+  padding: var(--code-block-padding-v) var(--code-block-padding-h);
   word-break: break-word;
   white-space: break-spaces;
 }
@@ -461,38 +547,44 @@ body,
 #write pre[data-lang] code,
 .markdown-section pre[data-lang] code {
   margin: 0;
-  background: #333;
-  color: #FFF;
-  border: 0px solid transparent;
-  border-radius: 0.5em;
-  padding: 0.75em 1em;
+  background: var(--code-block-bg-color);
+  color: #fff;
+  border: var(--code-border);
+  border-radius: var(--block-border-radius);
+  padding: var(--code-block-padding-v) var(--code-block-padding-h);
   word-break: break-word;
   white-space: break-spaces;
 }
 #write pre[data-lang]::after,
 .markdown-section pre[data-lang]::after {
-  color: #FFF;
+  color: #fff;
   top: 0;
   right: 1em;
-  background: #FFF2;
+  background: #fff2;
   padding: 0.2em 0.8em;
   border-radius: 0 0 0.5em 0.5em;
 }
 #write pre.md-fences,
 .markdown-section pre.md-fences {
-  background: #333;
-  color: #FFF;
-  border: 0px solid transparent;
-  border-radius: 0.5em;
-  padding: 0.75em 1em;
+  background: var(--code-block-bg-color);
+  color: #fff;
+  border: var(--code-border);
+  border-radius: var(--block-border-radius);
+  padding: var(--code-block-padding-v) var(--code-block-padding-h);
   word-break: break-word;
   white-space: break-spaces;
+}
+#write pre.md-fences .CodeMirror,
+.markdown-section pre.md-fences .CodeMirror,
+#write pre.md-fences .CodeMirror-scroll,
+.markdown-section pre.md-fences .CodeMirror-scroll {
+  background: none;
 }
 #write .code-tooltip,
 .markdown-section .code-tooltip {
   box-shadow: none;
-  border-radius: 0.5em;
-  border: 0px solid transparent;
+  border-radius: var(--block-border-radius);
+  border: var(--code-border);
 }
 #write kbd,
 .markdown-section kbd {
@@ -500,21 +592,22 @@ body,
 }
 #write kbd + kbd,
 .markdown-section kbd + kbd {
-  margin-left: 0.1rem;
+  margin-left: var(--inline-block-margin);
 }
 #write blockquote,
 .markdown-section blockquote {
-  padding: 0.75rem 0.75rem;
-  border-left: 4px solid #8884;
-  background: rgba(136, 136, 136, 0);
-  color: rgba(34, 34, 34, 0.75);
-  border-radius: 0 0.5em 0.5em 0;
+  --block-gap: 0.75rem;
+  padding: var(--block-gap) 0.75rem;
+  border-left: 4px solid var(--color-border);
+  background: var(--color-light);
+  color: var(--text-color);
+  border-radius: 0 var(--block-border-radius) var(--block-border-radius) 0;
   transition: 1s;
 }
 #write blockquote p,
 .markdown-section blockquote p {
-  font: 0.9em/1.5 'Poppins', 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', sans-serif;
-  margin: 0.75rem 0;
+  font: 0.9em/1.5 var(--sans);
+  margin: var(--block-gap) 0;
 }
 #write blockquote p:first-child,
 .markdown-section blockquote p:first-child {
@@ -527,24 +620,24 @@ body,
 #write blockquote:hover,
 .markdown-section blockquote:hover {
   transition: 0.2s;
-  border-left: 4px solid #24D;
-  background: #8882;
-  color: #222;
+  border-left: 4px solid var(--theme-color);
+  background: var(--color-light);
+  color: var(--text-color);
 }
 #write pre.md-meta-block,
 .markdown-section pre.md-meta-block,
 #write hr:first-child + p,
 .markdown-section hr:first-child + p {
-  background: #333;
-  color: #FFF;
-  border: 0px solid transparent;
-  border-radius: 0.5em;
-  padding: 0.75em 1em;
+  background: var(--code-block-bg-color);
+  color: #fff;
+  border: var(--code-border);
+  border-radius: var(--block-border-radius);
+  padding: var(--code-block-padding-v) var(--code-block-padding-h);
   word-break: break-word;
   white-space: break-spaces;
-  background: #8882;
-  font: 0.75rem/1.5 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
-  color: #222;
+  background: var(--color-light);
+  font: 0.75rem/1.5 var(--monospace);
+  color: var(--text-color);
   opacity: 0.5;
   transition: opacity 1s;
 }
@@ -570,7 +663,7 @@ body,
   display: block;
   margin: 0 auto;
   border: none;
-  border-radius: 0.5em;
+  border-radius: var(--block-border-radius);
   box-shadow: 0 0 2px #0000;
   transition: all 0.3s !important;
 }
@@ -623,7 +716,7 @@ body,
 }
 #write ol li::marker,
 .markdown-section ol li::marker {
-  font: 0.9em 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
+  font: 0.9em var(--monospace);
 }
 #write .task-list-item,
 .markdown-section .task-list-item {
@@ -638,17 +731,54 @@ body,
   left: -1.5em;
   top: 0.5em;
 }
+#write .table_light,
+.markdown-section .table_light {
+  border: 1px solid var(--color-border);
+}
+#write .table_light th,
+.markdown-section .table_light th,
+#write .table_light td,
+.markdown-section .table_light td {
+  border-bottom: 1px solid var(--color-border);
+}
+#write .table_light th,
+.markdown-section .table_light th {
+  background: var(--color-light);
+}
+#write .table_light tbody tr:nth-child(even),
+.markdown-section .table_light tbody tr:nth-child(even) {
+  background: #8881;
+}
+#write .table_dark,
+.markdown-section .table_dark {
+  background: var(--color-dark);
+}
+#write .table_dark th,
+.markdown-section .table_dark th,
+#write .table_dark td,
+.markdown-section .table_dark td {
+  color: white;
+}
+#write .table_dark th,
+.markdown-section .table_dark th {
+  background: var(--color-dark);
+  color: var(--color-em);
+}
+#write .table_dark tbody tr:nth-child(even),
+.markdown-section .table_dark tbody tr:nth-child(even) {
+  background: var(--color-dark);
+}
 #write table:not(.md-grid-board),
 .markdown-section table:not(.md-grid-board),
 #write .md-table,
 .markdown-section .md-table {
   display: table;
   width: auto;
-  border-radius: 0.5em;
+  border-radius: var(--block-border-radius);
   overflow: hidden;
-  font: 0.9rem/1.25 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
+  font: 0.9rem/1.25 var(--monospace);
   border-collapse: separate;
-  border: 1px solid #8884;
+  border: 1px solid var(--color-border);
 }
 #write table:not(.md-grid-board) th,
 .markdown-section table:not(.md-grid-board) th,
@@ -686,66 +816,19 @@ body,
 .markdown-section table:not(.md-grid-board) td,
 #write .md-table td,
 .markdown-section .md-table td {
-  border-bottom: 1px solid #8884;
+  border-bottom: 1px solid var(--color-border);
 }
 #write table:not(.md-grid-board) th,
 .markdown-section table:not(.md-grid-board) th,
 #write .md-table th,
 .markdown-section .md-table th {
-  background: #8882;
+  background: var(--color-light);
 }
 #write table:not(.md-grid-board) tbody tr:nth-child(even),
 .markdown-section table:not(.md-grid-board) tbody tr:nth-child(even),
 #write .md-table tbody tr:nth-child(even),
 .markdown-section .md-table tbody tr:nth-child(even) {
-  background: rgba(136, 136, 136, 0);
-}
-#write table:not(.md-grid-board) tbody tr:nth-child(odd),
-.markdown-section table:not(.md-grid-board) tbody tr:nth-child(odd),
-#write .md-table tbody tr:nth-child(odd),
-.markdown-section .md-table tbody tr:nth-child(odd) {
-  background: none;
-}
-#write .table_light,
-.markdown-section .table_light {
-  border: 1px solid #8884;
-}
-#write .table_light th,
-.markdown-section .table_light th,
-#write .table_light td,
-.markdown-section .table_light td {
-  border-bottom: 1px solid #8884;
-}
-#write .table_light th,
-.markdown-section .table_light th {
-  background: #8882;
-}
-#write .table_light tbody tr:nth-child(even),
-.markdown-section .table_light tbody tr:nth-child(even) {
-  background: rgba(136, 136, 136, 0);
-}
-#write .table_light tbody tr:nth-child(odd),
-.markdown-section .table_light tbody tr:nth-child(odd) {
-  background: none;
-}
-#write .table_dark th,
-.markdown-section .table_dark th,
-#write .table_dark td,
-.markdown-section .table_dark td {
-  color: white;
-}
-#write .table_dark th,
-.markdown-section .table_dark th {
-  background: #333;
-  color: #F69;
-}
-#write .table_dark tbody tr:nth-child(even),
-.markdown-section .table_dark tbody tr:nth-child(even) {
-  background: #595959;
-}
-#write .table_dark tbody tr:nth-child(odd),
-.markdown-section .table_dark tbody tr:nth-child(odd) {
-  background: #666666;
+  background: #8881;
 }
 #write .md-def-name,
 .markdown-section .md-def-name {
@@ -755,12 +838,14 @@ body,
 .markdown-section .md-def-name::before,
 #write .md-def-name::after,
 .markdown-section .md-def-name::after {
+  font-size: 0.9rem;
   color: #888;
+  position: relative;
 }
 #write abbr,
 .markdown-section abbr {
   text-decoration: underline;
-  text-decoration-color: #24D;
+  text-decoration-color: var(--theme-color);
 }
 #write .md-fences[lang="mermaid"]:not(.md-focus),
 .markdown-section .md-fences[lang="mermaid"]:not(.md-focus),
@@ -768,7 +853,7 @@ body,
 .markdown-section .md-diagram-panel,
 #write .mermaid,
 .markdown-section .mermaid {
-  background: #FFF;
+  background: #fff;
 }
 #write .md-fences[lang="mermaid"]:not(.md-focus) *,
 .markdown-section .md-fences[lang="mermaid"]:not(.md-focus) *,
@@ -776,7 +861,7 @@ body,
 .markdown-section .md-diagram-panel *,
 #write .mermaid *,
 .markdown-section .mermaid * {
-  font-family: 'Poppins', 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', sans-serif !important;
+  font-family: var(--sans) !important;
 }
 #write pre.md-fences-advanced.md-focus[lang="mermaid"],
 .markdown-section pre.md-fences-advanced.md-focus[lang="mermaid"] {
@@ -785,11 +870,11 @@ body,
 #write pre.md-fences-advanced.md-focus .md-fences-adv-panel,
 .markdown-section pre.md-fences-advanced.md-focus .md-fences-adv-panel {
   position: relative;
-  background: #FFF;
-  border-radius: 0 0 0.5em 0.5em;
-  margin: 0.75em -1em -0.75em;
-  width: calc(100% +  1em*2);
-  border: 1px solid #333;
+  background: #fff;
+  border-radius: 0 0 var(--block-border-radius) var(--block-border-radius);
+  margin: var(-code-block-padding-v) calc(var(--code-block-padding-h) * -1) calc(var(-code-block-padding-v) * -1);
+  width: calc(100% +  var(--code-block-padding-h) * 2);
+  border: 1px solid var(--color-dark);
 }
 #write .mermaid,
 .markdown-section .mermaid {
@@ -815,25 +900,27 @@ table .md-br-content {
 }
 .on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container)::before,
 .on-focus-mode .md-end-block:not(.md-focus):not(.md-focus-container)::after {
-  color: #C8C8C8 !important;
+  color: #c8c8c8 !important;
   color: var(--blur-text-color) !important;
 }
 #typora-source {
-  font-family: 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace !important;
+  font-family: var(--monospace) !important;
 }
 #typora-source .CodeMirror-linenumber {
   visibility: visible;
-  font-family: 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
+  font-family: var(--monospace);
 }
 #outline-content {
   padding: 0 0.5em;
-  font: 400 0.8em 'JetBrains Mono', Menlo, Consolas, 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', monospace;
+  font: 400 0.8em var(--monospace);
+  --header-indent: 2ch;
+  --item-padding-h: 0.5em;
 }
 #outline-content li ul {
-  padding-left: 2ch;
+  padding-left: var(--header-indent);
 }
 #outline-content li .outline-item {
-  padding: 0.5em 0.5em !important;
+  padding: 0.5em var(--item-padding-h) !important;
   margin: 0;
   border: none;
   border-radius: 0.25em;
@@ -842,7 +929,7 @@ table .md-br-content {
   padding-right: 1ch;
 }
 #outline-content li .outline-item .outline-label {
-  font: 1.25em 'Poppins', 'Source Han Sans HC', 'PingFang', 'Microsoft YaHei', sans-serif;
+  font: 1.25em var(--sans);
 }
 #outline-content li .outline-item .outline-label:hover {
   text-decoration: none;
@@ -857,7 +944,7 @@ table .md-br-content {
   transition: all 3s;
 }
 #outline-content li .outline-item::before:hover {
-  color: #FFF;
+  color: #fff;
   background: red;
   border-radius: 0.25em;
   z-index: 99;
@@ -871,7 +958,7 @@ table .md-br-content {
   background-color: inherit;
 }
 #outline-content li .outline-item .outline-active {
-  color: #24D;
+  color: var(--theme-color);
   font-weight: bold !important;
 }
 #outline-content .outline-h1 {
@@ -879,7 +966,7 @@ table .md-br-content {
   overflow: hidden;
 }
 #outline-content .outline-h1 > ul {
-  padding-left: 2.5ch;
+  padding-left: calc(var(--header-indent) + var(--item-padding-h));
 }
 #outline-content .outline-h2 {
   padding: 2px 0;
@@ -887,7 +974,7 @@ table .md-br-content {
   counter-increment: h2;
 }
 #outline-content .outline-h2::before {
-  content: '';
+  content: "";
   display: block;
   height: 0px;
   width: 200%;
@@ -898,8 +985,8 @@ table .md-br-content {
 }
 #outline-content .outline-h2 > .outline-item::before {
   content: counter(h2);
-  min-width: 2ch;
-  left: -2ch;
+  min-width: calc(var(--header-indent) * 1);
+  left: calc(var(--header-indent) * -1);
   opacity: 0.75;
 }
 #outline-content .outline-h3 {
@@ -908,8 +995,8 @@ table .md-br-content {
 }
 #outline-content .outline-h3 > .outline-item::before {
   content: counter(h2) "." counter(h3);
-  min-width: 4ch;
-  left: -4ch;
+  min-width: calc(var(--header-indent) * 2);
+  left: calc(var(--header-indent) * -2);
 }
 #outline-content .outline-h4 {
   counter-reset: h5;
@@ -917,8 +1004,8 @@ table .md-br-content {
 }
 #outline-content .outline-h4 > .outline-item::before {
   content: counter(h2) "." counter(h3) "." counter(h4);
-  min-width: 6ch;
-  left: -6ch;
+  min-width: calc(var(--header-indent) * 3);
+  left: calc(var(--header-indent) * -3);
 }
 #outline-content .outline-h5 {
   counter-reset: h6;
@@ -926,19 +1013,19 @@ table .md-br-content {
 }
 #outline-content .outline-h5 > .outline-item::before {
   content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5);
-  min-width: 8ch;
-  left: -8ch;
+  min-width: calc(var(--header-indent) * 4);
+  left: calc(var(--header-indent) * -4);
 }
 #outline-content .outline-h6 {
   counter-increment: h6;
 }
 #outline-content .outline-h6 > .outline-item::before {
   content: counter(h2) "." counter(h3) "." counter(h4) "." counter(h5) "." counter(h6);
-  min-width: 10ch;
-  left: -10ch;
+  min-width: calc(var(--header-indent) * 5);
+  left: calc(var(--header-indent) * -5);
 }
 .sidebar-footer {
-  border-top-color: #8882;
+  border-top-color: var(--color-light);
 }
 .pin-outline #typora-sidebar .sidebar-footer:not(.show-sidebar-footer-context) {
   opacity: 1;
@@ -968,7 +1055,7 @@ table .md-br-content {
   position: relative;
 }
 .sidebar-nav.active:before {
-  content: '';
+  content: "";
   position: absolute;
   width: 200%;
   height: 100%;
@@ -977,12 +1064,12 @@ table .md-br-content {
   z-index: -1;
 }
 .sidebar-nav.active > a {
-  border-color: #24D;
-  color: #24D;
+  border-color: var(--theme-color);
+  color: var(--theme-color);
 }
 .sidebar-nav.active > a strong {
   font-weight: bold;
-  color: #24D;
+  color: var(--theme-color);
 }
 .markdown-section {
   padding: env(safe-area-inset-top) calc(2em + env(safe-area-inset-left) + env(safe-area-inset-right) + 1vw) env(safe-area-inset-bottom);
