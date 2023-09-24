@@ -1,5 +1,6 @@
 *ignore.*
 *.sublime*
+*.zip
 
 # default themes
 github/
