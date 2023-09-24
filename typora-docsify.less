@@ -510,8 +510,22 @@ body,
   }
 
   // 音标
-  ruby > rt {
-    font-size: clamp(10px, 0.5em, 100px) !important;
+  ruby {
+    text-decoration: underline;
+    text-decoration-color: transparent;
+    transition: text-decoration-color 0.3s;
+
+    rt {
+      font-size: clamp(10px, 0.5em, 100px) !important;
+      transform-origin: bottom;
+      transition: all 0.3s;
+    }
+    &:hover {
+      text-decoration-color: inherit;
+      rt {
+        transform: scale(1.5);
+      }
+    }
   }
 
   // ============================== 代码 引用

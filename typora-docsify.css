@@ -509,9 +509,25 @@ body,
   background: var(--color-light);
   color: inherit;
 }
-#write ruby > rt,
-.markdown-section ruby > rt {
+#write ruby,
+.markdown-section ruby {
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: text-decoration-color 0.3s;
+}
+#write ruby rt,
+.markdown-section ruby rt {
   font-size: clamp(10px, 0.5em, 100px) !important;
+  transform-origin: bottom;
+  transition: all 0.3s;
+}
+#write ruby:hover,
+.markdown-section ruby:hover {
+  text-decoration-color: inherit;
+}
+#write ruby:hover rt,
+.markdown-section ruby:hover rt {
+  transform: scale(1.5);
 }
 #write code,
 .markdown-section code,
