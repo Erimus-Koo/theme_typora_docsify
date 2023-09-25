@@ -3,19 +3,21 @@
 // import code block css
 @import "typora-docsify/codeblock.css";
 
-// import google fonts
+/* Import Google Font ------------------------------ START */
 // @import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;600&family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 @import (css)
   url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Poppins:ital,wght@0,400;0,600;1,400;1,600&display=swap");
+/* Import Google Font ------------------------------ END */
 
-/* 数字部分使用 Barlow
-适配数字范围 ------------------------------
-1234567890.,-+\/@
+/* 数字部分使用 Barlow ------------------------------ START */
+/* 
+适配数字范围 
+0123456789%+,-./\@
 [0-9]U+30-39, [%]U+25, [+,-./]U+2B-2F, [\]U+5C, [@]U+40 
 
 字重500的Barlow跟400的Poppins比较配
-
-如果需要Barlow所有字符 用👇 然后取 Latin ------------------------------
+------------------------------
+如果需要Barlow所有字符 用👇 然后取 Latin 
 https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700
 
 Barlow latin 👇
@@ -31,17 +33,17 @@ https://fonts.gstatic.com/s/barlow/v12/7cHqv4kjgoGqM7E30-8s51os.woff2
 
 700 Barlow Bold
 https://fonts.gstatic.com/s/barlow/v12/7cHqv4kjgoGqM7E3t-4s51os.woff2
-
-如果只需要指定的少数字符 用👇 ------------------------------
-https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&text=1234567890.,-+\/@
-
-转换base64版本内嵌字体 ------------------------------
+------------------------------
+如果只需要指定的少数字符 用👇 
+https://fonts.googleapis.com/css2?family=Barlow:wght@500;600;700&text=0123456789%+,-./\@
+------------------------------
+转换base64版本内嵌字体 
 https://transfonter.org
 */
 @font-face {
   font-family: "Number";
   src: local("Barlow Medium"),
-    url(https://fonts.gstatic.com/l/font?kit=7cHqv4kjgoGqM7E3_-gc5Ug4vRMOWJ6MD8KJkq_lkyBzFuY&skey=4c8d0d0b13516148&v=v12)
+    url(https://fonts.gstatic.com/l/font?kit=7cHqv4kjgoGqM7E3_-gc5Ug7uBQPW5-TDsGIla7mki9yb_ox&skey=4c8d0d0b13516148&v=v12)
       format("woff2");
   font-weight: 400;
   unicode-range: U+30-39, U+25, U+2B-2F, U+5C, U+40;
@@ -50,21 +52,23 @@ https://transfonter.org
 @font-face {
   font-family: "Number";
   src: local("Barlow Semibold"),
-    url(https://fonts.gstatic.com/l/font?kit=7cHqv4kjgoGqM7E30-8c5Ug4vRMOWJ6MD8KJkq_lkyBzFuY&skey=a9a2225c15335812&v=v12)
+    url(https://fonts.gstatic.com/l/font?kit=7cHqv4kjgoGqM7E30-8c5Ug7uBQPW5-TDsGIla7mki9yb_ox&skey=a9a2225c15335812&v=v12)
       format("woff2");
   font-weight: 600;
   unicode-range: U+30-39, U+25, U+2B-2F, U+5C, U+40;
 }
 
-// @font-face {
-//   font-family: "Number";
-//   src: local("Barlow Bold"),
-//     url(https://fonts.gstatic.com/l/font?kit=7cHqv4kjgoGqM7E3t-4c5Ug4vRMOWJ6MD8KJkq_lkyBzFuY&skey=f60e73b1bbf362f3&v=v12)
-//       format("woff2");
-//   font-weight: 700;
-//   unicode-range: U+30-39, U+25, U+2B-2F, U+5C, U+40;
-// }
+@font-face {
+  font-family: "Number";
+  src: local("Barlow Bold"),
+    url(https://fonts.gstatic.com/l/font?kit=7cHqv4kjgoGqM7E3t-4c5Ug7uBQPW5-TDsGIla7mki9yb_ox&skey=f60e73b1bbf362f3&v=v12)
+      format("woff2");
+  font-weight: 700;
+  unicode-range: U+30-39, U+25, U+2B-2F, U+5C, U+40;
+}
+/* 数字部分使用 Barlow ------------------------------ END */
 
+/* 优先 Emoji 字体 ------------------------------ START */
 /* 优先启用表情图标 避免被 Nerd Font 等大字符集覆盖，比如⚠️
 但emoji会覆盖数字，所以要限定一下emoji的适用范围，避开常用拉丁文。
 苹果: "AppleColorEmoji", Win: "Segoe UI Emoji" */
@@ -73,7 +77,9 @@ https://transfonter.org
   src: local("AppleColorEmoji"), local("Segoe UI Emoji");
   unicode-range: U+300-FFFF;
 }
+/* 优先 Emoji 字体 ------------------------------ END */
 
+/* 全局设置 ------------------------------ START */
 :root {
   /* 
 特殊字体：Emoji, Number, 
@@ -151,7 +157,7 @@ Win中文："Microsoft YaHei", "微软雅黑",
 
   //主按钮的颜色
   --primary-color: var(--theme-color);
-  //   --window-border: 1px solid red; //边栏等的边框 很少出现
+  // --window-border: 1px solid red; //边栏等的边框 很少出现
 
   // side bar menu
   --active-file-bg-color: var(--color-light);
@@ -185,6 +191,7 @@ body,
   /* iOS 点击区域不出现灰色 */
   -webkit-tap-highlight-color: transparent;
 }
+/* 全局设置 ------------------------------ END */
 
 // typora:  #write
 // docsify: .markdown-section
