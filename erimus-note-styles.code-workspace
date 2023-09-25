@@ -1,0 +1,13 @@
+{
+  "folders": [
+	{
+		"path": "../../notebook/.obsidian/snippets"
+	},
+	{
+		"path": "."
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "theme_typora_docsify"
+  }
+}
