@@ -735,7 +735,7 @@ body,
 #write ol,
 .markdown-section ol {
   margin: 0.5em 0;
-  padding-left: 3ch;
+  padding-left: 1.5rem;
 }
 #write ul li,
 .markdown-section ul li,
