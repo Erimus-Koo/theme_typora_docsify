@@ -477,7 +477,7 @@ body,
 
   strong,
   b {
-    // font-size: bolder;
+    font-weight: var(--font-weight-bold);
   }
 
   p strong,
@@ -746,7 +746,7 @@ body,
   }
 
   ol li::marker {
-    font: 0.9em var(--monospace);
+    font-size: 0.9em;
   }
 
   // 处理 checkbox
@@ -1131,9 +1131,9 @@ table {
   > a {
     line-height: 1.25em;
 
-    strong {
-      font-weight: normal;
-    }
+    // strong {
+    //   font-weight: normal;
+    // }
   }
 
   &.active {
@@ -1154,7 +1154,7 @@ table {
       color: var(--theme-color);
 
       strong {
-        font-weight: bold;
+        font-weight: var(--font-weight-bold);
         color: var(--theme-color);
       }
     }

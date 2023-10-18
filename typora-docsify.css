@@ -485,6 +485,12 @@ body,
 .markdown-section a.anchor:hover {
   background: var(--color-highlight);
 }
+#write strong,
+.markdown-section strong,
+#write b,
+.markdown-section b {
+  font-weight: var(--font-weight-bold);
+}
 #write del,
 .markdown-section del {
   color: var(--text-color);
@@ -769,7 +775,7 @@ body,
 }
 #write ol li::marker,
 .markdown-section ol li::marker {
-  font: 0.9em var(--monospace);
+  font-size: 0.9em;
 }
 #write .task-list-item,
 .markdown-section .task-list-item {
@@ -1101,9 +1107,6 @@ table .md-br-content {
 .sidebar-nav > a {
   line-height: 1.25em;
 }
-.sidebar-nav > a strong {
-  font-weight: normal;
-}
 .sidebar-nav.active {
   position: relative;
 }
@@ -1121,7 +1124,7 @@ table .md-br-content {
   color: var(--theme-color);
 }
 .sidebar-nav.active > a strong {
-  font-weight: bold;
+  font-weight: var(--font-weight-bold);
   color: var(--theme-color);
 }
 .markdown-section {
